@@ -16,7 +16,6 @@ public class Slam : Skill
         // Inutile mais c'est pour l'exemple, si on veut d'autres conditions
         return base.IsCastable(caster);
     }
-
     public override void Activate(Character caster, Character[] target)
     {
         base.Activate(caster, target);
