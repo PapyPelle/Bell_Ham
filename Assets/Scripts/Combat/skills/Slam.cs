@@ -17,9 +17,9 @@ public class Slam : Skill
         return base.IsCastable(caster);
     }
 
-    public override void Activate(Character target)
+    public override void Activate(Character caster, Character[] target)
     {
-        base.Activate(target);
+        base.Activate(caster, target);
     }
 
 }
