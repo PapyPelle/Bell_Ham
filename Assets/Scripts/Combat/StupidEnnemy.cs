@@ -11,16 +11,16 @@ public class StupidEnnemy : Character
         max_mana = 0;
         list_of_skills[0] = new Slam();
     }
-
+    
     protected override void TakeTurn()
     {
-        list_of_skills[0].Activate(this, ChoseTarget());
+       // list_of_skills[0].Activate(this, ChoseTarget());
     }
-
+    /*
     private Character ChoseTarget()
     {
 
     }
-
+    */
 
 }

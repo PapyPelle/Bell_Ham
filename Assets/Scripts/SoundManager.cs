@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
 
     private Dictionary<string, AudioClip> dictionarySongLevel; // contiens les sons du niveau
     private Dictionary<string, AudioClip> dictionaryPlayerSong; // contiens les sons du joueur
+    private Dictionary<string, AudioClip> dictionaryMenuSong; // contiens les sons du Menu
 
     private UnityEngine.Object[] tabSong; // permet de recuperer les sons une fois chargé (utilise en transision)
 
@@ -90,33 +91,33 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    /**
-     * joue un son du joueur
-     * */
-    public void playPlayerSong(string name)
+    public void loadMenu()
     {
 
-        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
-        efxSource.clip = dictionaryPlayerSong[name];
+        string path = "Sounds/Menu"; // on definit le chemin d'acces au son en fonction du niveau
+        loadSound(path, dictionaryMenuSong);
 
-        //Play the clip.
-        efxSource.Play();
+
     }
     /*
-     * joue un son du niveau
+     * joue un effet sonore
      * */
-
-    public void playLevelSong(string name)
+    private void playSong(string name, Dictionary<string, AudioClip> dico, AudioSource source)
     {
 
+
+        //Choose a random pitch to play back our clip at between our high and low pitch ranges.
+        float randomPitch = UnityEngine.Random.Range(lowPitchRange, highPitchRange);
+
+        //Set the pitch of the audio source to the randomly chosen pitch.
+        source.pitch = randomPitch;
+
+
         //Set the clip of our efxSource audio source to the clip passed in as a parameter.
-        efxSource.clip = dictionarySongLevel[name];
+        source.clip = dico[name];
 
         //Play the clip.
-        efxSource.Play();
-
-
-
+        source.Play();
 
         /*This is a safer, but slow, method of accessing
         //values in a dictionary.
@@ -133,8 +134,42 @@ public class SoundManager : MonoBehaviour
          * */
 
     }
-    //Used to play single sound clips.
-    public void PlaySingle(AudioClip clip)
+
+    public void playMenuSongEffet(string name)
+    {
+
+        playSong(name, dictionaryMenuSong,efxSource);
+    }
+
+    /**
+     * joue un effet sonore du joueur
+     * */
+    public void playPlayerSongEffect(string name)
+    {
+        playSong(name, dictionaryPlayerSong, efxSource);
+    }
+    /*
+     * joue un effet sonore du niveau
+     * */
+
+    public void playLevelSongEffect(string name)
+    {
+        playSong(name, dictionarySongLevel, efxSource);
+
+    }
+    /**
+     * Joue un son de manière cyclique (Loop) 
+     * 
+     * */
+    public void playLevelSongMusic(string name)
+    {
+
+        playSong(name, dictionarySongLevel, musicSource);
+
+    }
+
+        //Used to play single sound clips.
+        public void PlaySingle(AudioClip clip)
     {
         //Set the clip of our efxSource audio source to the clip passed in as a parameter.
         efxSource.clip = clip;
