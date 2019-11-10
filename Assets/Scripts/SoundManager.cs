@@ -36,24 +36,26 @@ public class SoundManager : MonoBehaviour
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad(gameObject);
     }
-
+    
 
     /**
      * Permet de charger l'ensemble des song present dans le fichier correspondant au chemin donné
      * 
      * @param path : chemin d'acces du dossier contenant les fichiers sonores
      * @param dico : dictionnaire recuperant les informations
-     * */
+     * 
     private void loadSound(String path, Dictionary<string, AudioClip> dico)
     {
 
         try
         {
-            tabSong = Resources.LoadAll(path, typeof(AudioClip)); // on charge les musiques
+            
+            // tabSong = Resources.LoadAll(path, typeof(AudioClip)); // on charge les musiques
 
-
+            Debug.Log(" -- LOAD MENU path : "+path+"  --");
             foreach (var s in tabSong)
             {
+                
                 Debug.Log(s.name);
                 dico.Add(s.name, (AudioClip)s);
 
@@ -69,39 +71,39 @@ public class SoundManager : MonoBehaviour
      * charge l'ensemble des sons d'un niveau 
      * 
      * @param levelNumber : numero du niveau correspondant
-     * */
+     * 
     public void loadLevel(int levelNumber)
     {
 
 
-        string path = "Sounds/Level_" + levelNumber.ToString(); // on definit le chemin d'acces au son en fonction du niveau
+        string path = "/Sounds/Level_" + levelNumber.ToString(); // on definit le chemin d'acces au son en fonction du niveau
         dictionarySongLevel.Clear();
         loadSound(path, dictionarySongLevel);
 
     }
     /**
      * charge les sons du joueur
-     * */
+     * 
     public void loadPlayer()
     {
 
 
-        string path = "Sounds/PlayerSongs"; // on definit le chemin d'acces au son en fonction du niveau
+        string path = "/Sounds/PlayerSongs"; // on definit le chemin d'acces au son en fonction du niveau
         loadSound(path, dictionaryPlayerSong);
 
     }
 
     public void loadMenu()
     {
-
-        string path = "Sounds/Menu"; // on definit le chemin d'acces au son en fonction du niveau
+        
+        string path = "/Sounds/Menu/"; // on definit le chemin d'acces au son en fonction du niveau
         loadSound(path, dictionaryMenuSong);
 
 
     }
     /*
      * joue un effet sonore
-     * */
+     * 
     private void playSong(string name, Dictionary<string, AudioClip> dico, AudioSource source)
     {
 
@@ -131,7 +133,7 @@ public class SoundManager : MonoBehaviour
         }
          * 
          * 
-         * */
+         * 
 
     }
 
@@ -143,14 +145,14 @@ public class SoundManager : MonoBehaviour
 
     /**
      * joue un effet sonore du joueur
-     * */
+     * 
     public void playPlayerSongEffect(string name)
     {
         playSong(name, dictionaryPlayerSong, efxSource);
     }
     /*
      * joue un effet sonore du niveau
-     * */
+     * 
 
     public void playLevelSongEffect(string name)
     {
@@ -160,22 +162,24 @@ public class SoundManager : MonoBehaviour
     /**
      * Joue un son de manière cyclique (Loop) 
      * 
-     * */
+     * 
     public void playLevelSongMusic(string name)
     {
 
         playSong(name, dictionarySongLevel, musicSource);
 
     }
-
+    /**
+     *permet de jouer un son de maniere cyclique (Loop) 
+     **/
         //Used to play single sound clips.
         public void PlaySingle(AudioClip clip)
     {
         //Set the clip of our efxSource audio source to the clip passed in as a parameter.
-        efxSource.clip = clip;
+        musicSource.clip = clip;
 
         //Play the clip.
-        efxSource.Play();
+        musicSource.Play();
     }
 
 
