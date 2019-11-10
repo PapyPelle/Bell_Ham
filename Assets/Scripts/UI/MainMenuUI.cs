@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class MainMenuUI : MonoBehaviour
 
 	public void NewGame()
 	{
-		Debug.Log(" -- Nouvelle partie --");
+		SceneManager.LoadScene("CharacterCreationMenu");
 	}
 
 	public void Options()
