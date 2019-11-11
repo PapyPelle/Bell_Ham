@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleHandler : MonoBehaviour {
-
+    public AudioClip soundDeath;
+    public AudioClip soundDash;
+    public AudioClip soundAttack;
     private static BattleHandler instance;
 
     public static BattleHandler GetInstance() {
@@ -44,6 +46,9 @@ public class BattleHandler : MonoBehaviour {
                 playerCharacterBattle.Attack(enemyCharacterBattle, () => {
                     ChooseNextActiveCharacter();
                 });
+                SoundManager.instance.RandomizeSfx(soundDash);
+                SoundManager.instance.RandomizeSfx(soundAttack);
+
             }
         }
     }
@@ -83,6 +88,8 @@ public class BattleHandler : MonoBehaviour {
             enemyCharacterBattle.Attack(playerCharacterBattle, () => {
                 ChooseNextActiveCharacter();
             });
+            SoundManager.instance.RandomizeSfx(soundDash);
+            SoundManager.instance.RandomizeSfx(soundAttack);
         } else {
             SetActiveCharacterBattle(playerCharacterBattle);
             state = State.WaitingForPlayer;
@@ -94,12 +101,14 @@ public class BattleHandler : MonoBehaviour {
             // Player dead, enemy wins
             //CodeMonkey.CMDebug.TextPopupMouse("Enemy Wins!");
             BattleOverWindow.Show_Static("Enemy Wins!");
+            SoundManager.instance.RandomizeSfx(soundDeath);
             return true;
         }
         if (enemyCharacterBattle.IsDead()) {
             // Enemy dead, player wins
             //CodeMonkey.CMDebug.TextPopupMouse("Player Wins!");
             BattleOverWindow.Show_Static("Player Wins!");
+            SoundManager.instance.RandomizeSfx(soundDeath);
             return true;
         }
 
