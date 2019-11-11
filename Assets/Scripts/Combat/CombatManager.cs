@@ -6,8 +6,8 @@ public class CombatManager : MonoBehaviour
 {
     // Liste des combattants et indice du tour
     public Character[] fighter_list;
-    private int current_fighter = 0;
-    private int player_i = 0;
+    public int current_fighter = 0;
+    public int player_i = 0;
 
 
     // Start is called before the first frame update
@@ -15,6 +15,7 @@ public class CombatManager : MonoBehaviour
     {
         // Au début du combat, on décide de l'ordre d'action
         SortFighters();
+        fighter_list[0].my_turn = true;
     }
 
 
@@ -27,11 +28,11 @@ public class CombatManager : MonoBehaviour
             NextFighter();
         }
         // Si le combat est fini, on termine
-        int combat_result = CheckEndOfCombat();
+/*        int combat_result = CheckEndOfCombat();
         if (combat_result != 0)
         {
             EndFight(combat_result == 1);
-        }
+        }*/
     }
 
 
@@ -62,6 +63,7 @@ public class CombatManager : MonoBehaviour
     private void NextFighter()
     {
         current_fighter = (current_fighter + 1) % fighter_list.Length;
+        fighter_list[current_fighter].my_turn = true;
     }
 
 
@@ -78,7 +80,7 @@ public class CombatManager : MonoBehaviour
         // Si un ennemi est vivant (et donc joueur aussi) : 0
         foreach (Character c in fighter_list)
         {
-            if (c.gameObject.CompareTag("Monster") && c.is_alive)
+            if (!c.gameObject.CompareTag("Player") && c.is_alive)
             {
                 return 0;
             }
@@ -100,6 +102,15 @@ public class CombatManager : MonoBehaviour
         {
             Debug.Log(" === PLAYER LOSE === ");
         }
+    }
+
+
+    /**
+     * Renvoie le joueur dans le combats (pour les cibles)
+     */
+    public Character PlayerCharacter()
+    {
+        return fighter_list[player_i];
     }
 
 }

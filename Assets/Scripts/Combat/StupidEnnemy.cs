@@ -6,21 +6,23 @@ public class StupidEnnemy : Character
 {
     protected override void GetCharacterInfo()
     {
-        max_life = 20;
+        // Get values from ennemy type
+        /*max_life = 20;
         max_energy = 10;
-        max_mana = 0;
+        max_mana = 0;*/
         list_of_skills[0] = new Slam();
     }
     
     protected override void TakeTurn()
     {
-       // list_of_skills[0].Activate(this, ChoseTarget());
+        Debug.Log("MOONSTER SLAM");
+        list_of_skills[0].Activate(this, ChoseTarget());
+        EndTurn();
     }
-    /*
+ 
     private Character ChoseTarget()
     {
-
+        return combat.PlayerCharacter();
     }
-    */
 
 }

@@ -6,9 +6,6 @@ using UnityEngine;
 // Heritage : protected override void TakeTurn() and GetCharacterInfo()
 public abstract class Character : MonoBehaviour
 {
-    // Nom pour le débug ou une boite de display de l'attaque
-    public string name_display; // Similaire à "gameobject.name" ?
-
     // D'autres effets que la vie < 0 peuvent causer la mort, donc on garde un bool
     public bool is_alive = true;
 
@@ -21,6 +18,9 @@ public abstract class Character : MonoBehaviour
 
     // Savoir si l'on peut agir
     public bool my_turn = false;
+
+    // Combat en cours
+    public CombatManager combat;
 
     // Les spells disponibles
     public Skill[] list_of_skills = new Skill[4];
@@ -84,10 +84,10 @@ public abstract class Character : MonoBehaviour
     /**
      * Termine le tour du combattant (récup energies et application d'effet ??)
      */
-    private void EndTurn()
+    protected void EndTurn()
     {
         // foreach(affectation on me) affectation.affect(me); ?
-        Debug.Log(name_display + "end turn");
+        Debug.Log(gameObject.name + "end turn, stats (" + current_stats[0] + "," + current_stats[1] + "," + current_stats[2] + ")");
         my_turn = false;
         current_stats[1] = max_energy;
         current_stats[2] = max_mana;

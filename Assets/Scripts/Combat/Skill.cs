@@ -14,7 +14,7 @@ public class Skill // : MonoBehaviour
 
     public virtual bool IsCastable(Character caster)
     {
-        return (caster.current_stats[cast_type] < cost);
+        return (caster.current_stats[cast_type] >= cost);
     }
 
     public virtual bool IsValidTarget(Character caster, Character target)
@@ -22,11 +22,13 @@ public class Skill // : MonoBehaviour
         return target.is_alive;
     }
 
-    public virtual void Activate(Character caster, Character[] target)
+    public virtual void Activate(Character caster, Character target)
     {
-        if (target != null)
-            target[0].current_stats[0] -= damage;
-        caster.current_stats[cast_type] -= cost;        
+        if (target != null && IsValidTarget(caster, target))
+        {
+            target.current_stats[0] -= damage;
+        }
+        caster.current_stats[cast_type] -= cost;    
     }
 
 }
