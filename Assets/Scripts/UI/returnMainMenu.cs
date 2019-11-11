@@ -18,7 +18,7 @@ public class returnMainMenu : MonoBehaviour
     }
 
     public void returnMain() {
-        SoundManager.instance.loadMenu();
+       
         Debug.Log(" -- LoadMenu --");
         SceneManager.LoadScene("MainMenu");
         
