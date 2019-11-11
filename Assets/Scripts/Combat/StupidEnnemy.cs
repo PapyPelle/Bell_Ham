@@ -15,7 +15,7 @@ public class StupidEnnemy : Character
     
     protected override void TakeTurn()
     {
-        Debug.Log("MOONSTER SLAM");
+        Debug.Log("MONSTER SLAM");
         list_of_skills[0].Activate(this, ChoseTarget());
         EndTurn();
     }
@@ -24,5 +24,4 @@ public class StupidEnnemy : Character
     {
         return combat.PlayerCharacter();
     }
-
 }

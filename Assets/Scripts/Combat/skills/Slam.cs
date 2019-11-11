@@ -33,7 +33,6 @@ public class Slam : Skill
         {
             Debug.Log(caster.name + " can't cast this");
         }
-        
     }
 
 }
