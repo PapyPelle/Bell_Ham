@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BookPopup : MonoBehaviour
 {
@@ -8,6 +9,20 @@ public class BookPopup : MonoBehaviour
 	public GameObject popup;
 
 	int num_capacity;
+
+	public GameObject c1 = null;
+	public GameObject c2 = null;
+	public GameObject c3 = null;
+	public GameObject c4 = null;
+
+	public GameObject a1 = null;
+	public GameObject a2 = null;
+	public GameObject a3 = null;
+	public GameObject a4 = null;
+	public GameObject a5 = null;
+	public GameObject a6 = null;
+
+	Image img;
 
     // Start is called before the first frame update
     void Start()
@@ -39,20 +54,21 @@ public class BookPopup : MonoBehaviour
     }
 
 
-    public void SetCapacity() {
+    public void SetCapacity(GameObject go) {
     	popup.SetActive(false);
 		if (num_capacity==1) {
-
+			img = c1.GetComponent<Image>();
 		}
 		if (num_capacity==2) {
-			
+			img = c2.GetComponent<Image>();
 		}
 		if (num_capacity==3) {
-			
+			img = c3.GetComponent<Image>();
 		}
 		if (num_capacity==4) {
-			
+			img = c4.GetComponent<Image>();	
 		}
+		img.sprite = go.GetComponent<Image>().sprite;
     }
 
 

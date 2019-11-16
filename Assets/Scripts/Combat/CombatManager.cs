@@ -6,8 +6,8 @@ public class CombatManager : MonoBehaviour
 {
     // Liste des combattants et indice du tour
     public Character[] fighter_list;
-    public int current_fighter = 0;
-    public int player_i = 0;
+    private int current_fighter = 0;
+    private int player_i = 0;
 
 
     // Start is called before the first frame update
