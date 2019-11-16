@@ -17,8 +17,9 @@ public class BattleHandler : MonoBehaviour {
     public Texture2D playerSpritesheet;
     public Texture2D enemySpritesheet;
 
-    private CharacterBattle playerCharacterBattle;
-    private CharacterBattle enemyCharacterBattle;
+    public int characterNumber; // player include
+    private CharacterBattle[] characterBattle;
+    private int activeIndice = 0;
     private CharacterBattle activeCharacterBattle;
     private State state;
 
@@ -32,18 +33,23 @@ public class BattleHandler : MonoBehaviour {
     }
 
     private void Start() {
-        playerCharacterBattle = SpawnCharacter(true);
-        enemyCharacterBattle = SpawnCharacter(false);
+        characterBattle = new CharacterBattle[characterNumber];
+        characterBattle[0] = SpawnCharacter(true, 0);
+        for (int i=1; i < characterNumber; i++)
+            characterBattle[i] = SpawnCharacter(false, i);
 
-        SetActiveCharacterBattle(playerCharacterBattle);
+        SetActiveCharacterBattle(characterBattle[0]);
         state = State.WaitingForPlayer;
     }
 
     private void Update() {
         if (state == State.WaitingForPlayer) {
             if (Input.GetKeyDown(KeyCode.Space)) {
+                int i = 1;
+                while (characterBattle[i].IsDead())
+                    i++;
                 state = State.Busy;
-                playerCharacterBattle.Attack(enemyCharacterBattle, () => {
+                characterBattle[0].Attack(characterBattle[i], () => {
                     ChooseNextActiveCharacter();
                 });
                 SoundManager.instance.RandomizeSfx(soundDash);
@@ -53,12 +59,12 @@ public class BattleHandler : MonoBehaviour {
         }
     }
 
-    private CharacterBattle SpawnCharacter(bool isPlayerTeam) {
+    private CharacterBattle SpawnCharacter(bool isPlayerTeam, int i) {
         Vector3 position;
         if (isPlayerTeam) {
             position = new Vector3(-50, 0);
         } else {
-            position = new Vector3(+50, 0);
+            position = new Vector3(+50, -60 + i * 25);
         }
         Transform characterTransform = Instantiate(pfCharacterBattle, position, Quaternion.identity);
         CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
@@ -81,33 +87,41 @@ public class BattleHandler : MonoBehaviour {
             return;
         }
 
-        if (activeCharacterBattle == playerCharacterBattle) {
-            SetActiveCharacterBattle(enemyCharacterBattle);
+        do {
+            activeIndice = (activeIndice + 1) % characterNumber;
+        } while (characterBattle[activeIndice].IsDead());
+        SetActiveCharacterBattle(characterBattle[activeIndice]);
+
+        if (activeIndice != 0) {
+            
             state = State.Busy;
             
-            enemyCharacterBattle.Attack(playerCharacterBattle, () => {
+            characterBattle[activeIndice].Attack(characterBattle[0], () => {
                 ChooseNextActiveCharacter();
             });
             SoundManager.instance.RandomizeSfx(soundDash);
             SoundManager.instance.RandomizeSfx(soundAttack);
         } else {
-            SetActiveCharacterBattle(playerCharacterBattle);
             state = State.WaitingForPlayer;
         }
     }
 
     private bool TestBattleOver() {
-        if (playerCharacterBattle.IsDead()) {
+        if (characterBattle[0].IsDead()) {
             // Player dead, enemy wins
             //CodeMonkey.CMDebug.TextPopupMouse("Enemy Wins!");
-            BattleOverWindow.Show_Static("Enemy Wins!");
+            // BattleOverWindow.Show_Static("Enemy Wins!");
             SoundManager.instance.RandomizeSfx(soundDeath);
             return true;
         }
-        if (enemyCharacterBattle.IsDead()) {
+
+        bool ennemiesDed = true;
+        for (int i = 1; i < characterNumber; i++)
+            ennemiesDed &= characterBattle[i].IsDead();
+        if (ennemiesDed) {
             // Enemy dead, player wins
             //CodeMonkey.CMDebug.TextPopupMouse("Player Wins!");
-            BattleOverWindow.Show_Static("Player Wins!");
+            // BattleOverWindow.Show_Static("Player Wins!");
             SoundManager.instance.RandomizeSfx(soundDeath);
             return true;
         }

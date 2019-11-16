@@ -574,6 +574,7 @@ MonoBehaviour:
     type: 3}
   playerSpritesheet: {fileID: 2800000, guid: 99b898971bb2a6d418d5e738489c3fbe, type: 3}
   enemySpritesheet: {fileID: 2800000, guid: 485aac2909f59d141a657b9a29ddf608, type: 3}
+  characterNumber: 4
 --- !u!4 &622812125
 Transform:
   m_ObjectHideFlags: 0

@@ -36,11 +36,13 @@ public class CharacterBattle : MonoBehaviour {
         if (isPlayerTeam) {
             characterBase.SetAnimsSwordTwoHandedBack();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().playerSpritesheet;
+            healthSystem = new HealthSystem(500);
         } else {
             characterBase.SetAnimsSwordShield();
             characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet;
+            healthSystem = new HealthSystem(100);
         }
-        healthSystem = new HealthSystem(100);
+        
         healthBar = new World_Bar(transform, new Vector3(0, 10), new Vector3(12, 1.7f), Color.grey, Color.red, 1f, 100, new World_Bar.Outline { color = Color.black, size = .6f });
         healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
 
@@ -72,7 +74,7 @@ public class CharacterBattle : MonoBehaviour {
             float reachedDistance = 1f;
             if (Vector3.Distance(GetPosition(), slideTargetPosition) < reachedDistance) {
                 // Arrived at Slide Target Position
-                //transform.position = slideTargetPosition;
+                transform.position = slideTargetPosition;
                 onSlideComplete();
             }
             break;
