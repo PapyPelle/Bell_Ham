@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Maps : MonoBehaviour
 {
     public AudioClip confirm;
-    // public AudioClip cancel;
+    public AudioClip cancel;
     public AudioClip music;
     //public Sprite start;
     
     public GameObject buttonPrefabRed; // bouton rouge indiquant un lieu a visiter
     public GameObject canvas; // this
+
+    public GameObject BoxDialog,TextDialog;
 
     public static int level = 1; // numero du level permettant de determine le nombre de points a faire apparaitre
 
@@ -45,6 +47,7 @@ public class Maps : MonoBehaviour
         {
             lastButton = createButton(generatePointNear(new Vector2(lastButton.transform.position.x, lastButton.transform.position.y),80), "");
         }
+        BoxDialog.SetActive(false);
        
     }
 
@@ -56,13 +59,7 @@ public class Maps : MonoBehaviour
 
 
 
-    void generateCombatScene()
-    {
-        // algorithme aleratoire qui definit la scene
-        SoundManager.instance.RandomizeSfx(confirm);
-        Debug.Log(" -- scene de Combat crée --");
-
-    }
+   
     /**
      * utlisé pour creer un nouveau lieu a visiter
      * @param position = position du button sur le background
@@ -128,7 +125,38 @@ public class Maps : MonoBehaviour
         return position;
     }
 
-   
+
+
+
+
+    void generateCombatScene()
+    {
+        // algorithme aleratoire qui definit la scene
+        SoundManager.instance.RandomizeSfx(confirm);
+
+        BoxDialog.SetActive(true);
+        TextDialog.transform.GetComponent<Text>().text = "Vous vous reveillé avec un mal de crâne ....";//Changing text
+
+        Debug.Log(" -- scene de Combat crée --");
+
+    }
+
+    public void dialogButtonYes()
+    {
+
+        SoundManager.instance.RandomizeSfx(confirm);
+
+    }
+
+
+    public void dialogButtonNo()
+    {
+        SoundManager.instance.RandomizeSfx(cancel);
+        BoxDialog.SetActive(false);
+
+    }
+
+
 
 
     /*
