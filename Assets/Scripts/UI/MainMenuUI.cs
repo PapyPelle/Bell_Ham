@@ -7,7 +7,14 @@ using UnityEngine.SceneManagement;
 public class MainMenuUI : MonoBehaviour
 {
     public AudioClip confirm;
-    public AudioClip cancel;
+ 
+    public AudioClip music;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        SoundManager.instance.PlaySingle(music);
+    }
 
     public void Continue()
 	{

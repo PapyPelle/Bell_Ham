@@ -3,7 +3,15 @@ guid: 34c2aa6d00ede1c4f9ca29354150b0bf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - left: {instanceID: 0}
+  - con: {instanceID: 0}
+  - forc: {instanceID: 0}
+  - mag: {instanceID: 0}
+  - mem: {instanceID: 0}
+  - agi: {instanceID: 0}
+  - confirm: {fileID: 8300000, guid: 311ed1f1bf2aa1847b8f10462f75982f, type: 3}
+  - cancel: {fileID: 8300000, guid: 7e58c1718e011c847949792efd486a17, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

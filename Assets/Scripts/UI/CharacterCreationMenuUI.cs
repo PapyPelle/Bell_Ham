@@ -19,6 +19,7 @@ public class CharacterCreationMenuUI : MonoBehaviour
 	public Text mag = null;
 	public Text mem = null;
 	public Text agi = null;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,8 @@ public class CharacterCreationMenuUI : MonoBehaviour
         mag.text = v_mag.ToString();
         mem.text = v_mem.ToString();
         agi.text = v_agi.ToString();
+
+
     }
 
     public void ConUp() {
@@ -66,7 +69,7 @@ public class CharacterCreationMenuUI : MonoBehaviour
     }
 
     public void AgiUp() {
-    	if (v_left > 0) { v_agi += 1; v_left -= 1; }
+           	if (v_left > 0) { v_agi += 1; v_left -= 1; }
     }
     public void AgiDown() {
     	if (v_agi > 0) { v_agi -= 1; v_left += 1; }
