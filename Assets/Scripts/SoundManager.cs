@@ -14,13 +14,13 @@ public class SoundManager : MonoBehaviour
     public float lowPitchRange = .95f;                //The lowest a sound effect will be randomly pitched.
     public float highPitchRange = 1.05f;            //The highest a sound effect will be randomly pitched.
 
-
+    /*
     private Dictionary<string, AudioClip> dictionarySongLevel; // contiens les sons du niveau
     private Dictionary<string, AudioClip> dictionaryPlayerSong; // contiens les sons du joueur
     private Dictionary<string, AudioClip> dictionaryMenuSong; // contiens les sons du Menu
 
     private UnityEngine.Object[] tabSong; // permet de recuperer les sons une fois chargé (utilise en transision)
-
+    */
 
     void Awake()
     {

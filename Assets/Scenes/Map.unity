@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 2054591}
   - component: {fileID: 2054590}
   - component: {fileID: 2054594}
+  - component: {fileID: 2054595}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -232,6 +233,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b390de4d458d5bc40ac3b0c3b2f1d7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 36e4bec92cda67b4495772670160405c, type: 3}
+  maps: {fileID: 2054595}
+  buttonPrefabRed: {fileID: 6919759910589126934, guid: 793f08acc182eb746b36d1618f1dadca,
+    type: 3}
+  canvas: {fileID: 2054589}
+--- !u!60 &2054595
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054589}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -133.18315, y: -113.4888}
+      - {x: -181.89137, y: -49.867584}
+      - {x: -190.64084, y: 13.785536}
+      - {x: -171.16397, y: 31.110847}
+      - {x: -144.93004, y: 41.988617}
+      - {x: -118.12494, y: 51.50692}
+      - {x: -102.62387, y: 86.906395}
+      - {x: -11.979548, y: 120.084045}
+      - {x: 9.616242, y: 142.77177}
+      - {x: 86.559944, y: 119.193016}
+      - {x: 176.67426, y: 147.02092}
+      - {x: 201.83401, y: 172.62825}
+      - {x: 230.57626, y: 152.85025}
+      - {x: 262.74158, y: 123.118904}
+      - {x: 302.7896, y: 71.59694}
+      - {x: 332.2759, y: -31.417675}
+      - {x: 236.1096, y: -27.39354}
+      - {x: 221.30386, y: 11.564162}
+      - {x: 170.70653, y: -6.902587}
+      - {x: 153.50809, y: -68.32323}
+      - {x: 214.56836, y: -116.3205}
+      - {x: 230.27942, y: -148.0291}
+      - {x: 168.19846, y: -142.89847}
+      - {x: 145.15198, y: -156.1188}
+      - {x: 74.016464, y: -157.98753}
+      - {x: 2.560374, y: -167.95422}
+      - {x: -39.2383, y: -158.56958}
 --- !u!1001 &1210829468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,6 +356,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912111010575295969, guid: eb71dc8cba87d8447a9554247c55b26b,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912111010575295968, guid: eb71dc8cba87d8447a9554247c55b26b,
+        type: 3}
+      propertyPath: MinDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb71dc8cba87d8447a9554247c55b26b, type: 3}
@@ -546,7 +614,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749819566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
