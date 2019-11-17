@@ -10,6 +10,8 @@ public class CapacityBook : MonoBehaviour
 	public GameObject P3;
 	public GameObject P4;
 
+	public AudioClip click;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class CapacityBook : MonoBehaviour
         P2.SetActive(false);
         P3.SetActive(false);
         P4.SetActive(false);
+        SoundManager.instance.RandomizeSfx(click);
     }
 
     public void b2() {
@@ -37,6 +40,7 @@ public class CapacityBook : MonoBehaviour
         P2.SetActive(true);
         P3.SetActive(false);
         P4.SetActive(false);
+        SoundManager.instance.RandomizeSfx(click);
     }
 
     public void b3() {
@@ -44,6 +48,7 @@ public class CapacityBook : MonoBehaviour
         P2.SetActive(false);
         P3.SetActive(true);
         P4.SetActive(false);
+        SoundManager.instance.RandomizeSfx(click);
     }
 
     public void b4() {
@@ -51,5 +56,6 @@ public class CapacityBook : MonoBehaviour
         P2.SetActive(false);
         P3.SetActive(false);
         P4.SetActive(true);
+        SoundManager.instance.RandomizeSfx(click);
     }
 }

@@ -7,20 +7,9 @@ public class returnMainMenu : MonoBehaviour
 {
 
     public AudioClip music;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //SoundManager.instance.PlaySingle(music);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void returnMain() {
-       
+		SoundManager.instance.RandomizeSfx(music);
         Debug.Log(" -- LoadMenu --");
         SceneManager.LoadScene("MainMenu");
         

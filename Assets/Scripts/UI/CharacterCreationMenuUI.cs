@@ -19,6 +19,8 @@ public class CharacterCreationMenuUI : MonoBehaviour
 	public Text mag = null;
 	public Text mem = null;
 	public Text agi = null;
+
+	public AudioClip click;
     
 
     // Start is called before the first frame update
@@ -41,37 +43,47 @@ public class CharacterCreationMenuUI : MonoBehaviour
     }
 
     public void ConUp() {
-    	if (v_left > 0) { v_con += 1; v_left -= 1; }
+    	if (v_left > 0) { v_con += 1; v_left -= 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
     public void ConDown() {
-    	if (v_con > 0) { v_con -= 1; v_left += 1; }
+    	if (v_con > 0) { v_con -= 1; v_left += 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
 
     public void ForcUp() {
-    	if (v_left > 0) { v_for += 1; v_left -= 1; }
+    	if (v_left > 0) { v_for += 1; v_left -= 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
     public void ForcDown() {
-    	if (v_for > 0) { v_for -= 1; v_left += 1; }
+    	if (v_for > 0) { v_for -= 1; v_left += 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
 
     public void MagUp() {
-    	if (v_left > 0) { v_mag += 1; v_left -= 1; }
+    	if (v_left > 0) { v_mag += 1; v_left -= 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
     public void MagDown() {
-    	if (v_mag > 0) { v_mag -= 1; v_left += 1; }
+    	if (v_mag > 0) { v_mag -= 1; v_left += 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
 
     public void MemUp() {
-    	if (v_left > 0) { v_mem += 1; v_left -= 1; }
+    	if (v_left > 0) { v_mem += 1; v_left -= 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
     public void MemDown() {
-    	if (v_mem > 0) { v_mem -= 1; v_left += 1; }
+    	if (v_mem > 0) { v_mem -= 1; v_left += 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
 
     public void AgiUp() {
-           	if (v_left > 0) { v_agi += 1; v_left -= 1; }
+           	if (v_left > 0) { v_agi += 1; v_left -= 1; SoundManager.instance.RandomizeSfx(click);}
+           	else {SoundManager.instance.RandomizeSfx(click);}
     }
     public void AgiDown() {
-    	if (v_agi > 0) { v_agi -= 1; v_left += 1; }
+    	if (v_agi > 0) { v_agi -= 1; v_left += 1; SoundManager.instance.RandomizeSfx(click);}
+    	else {SoundManager.instance.RandomizeSfx(click);}
     }
 }

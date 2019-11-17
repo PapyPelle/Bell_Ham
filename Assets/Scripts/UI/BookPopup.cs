@@ -24,6 +24,8 @@ public class BookPopup : MonoBehaviour
 
 	Image img;
 
+	public AudioClip click;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,23 +41,28 @@ public class BookPopup : MonoBehaviour
     public void capacity1() {
     	popup.SetActive(true);
     	num_capacity = 1;
+    	SoundManager.instance.RandomizeSfx(click);
     }
     public void capacity2() {
     	popup.SetActive(true);
     	num_capacity = 2;
+    	SoundManager.instance.RandomizeSfx(click);
     }
     public void capacity3() {
     	popup.SetActive(true);
     	num_capacity = 3;
+    	SoundManager.instance.RandomizeSfx(click);
     }
     public void capacity4() {
     	popup.SetActive(true);
     	num_capacity = 4;
+    	SoundManager.instance.RandomizeSfx(click);
     }
 
 
     public void SetCapacity(GameObject go) {
     	popup.SetActive(false);
+    	SoundManager.instance.RandomizeSfx(click);
 		if (num_capacity==1) {
 			img = c1.GetComponent<Image>();
 		}
