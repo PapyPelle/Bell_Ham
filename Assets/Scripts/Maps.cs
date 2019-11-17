@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Maps : MonoBehaviour
 {
-    //public AudioClip confirm;
+    public AudioClip confirm;
     // public AudioClip cancel;
     public AudioClip music;
     //public Sprite start;
@@ -13,7 +13,7 @@ public class Maps : MonoBehaviour
     public GameObject buttonPrefabRed; // bouton rouge indiquant un lieu a visiter
     public GameObject canvas; // this
 
-    public static int level = 5; // numero du level permettant de determine le nombre de points a faire apparaitre
+    public static int level = 1; // numero du level permettant de determine le nombre de points a faire apparaitre
 
     public static Maps instance = null; // variable permettant de rendre la classe static
 
@@ -40,10 +40,10 @@ public class Maps : MonoBehaviour
     {
         SoundManager.instance.PlaySingle(music);
 
-        GameObject lastButton =  createButton(generatePointInMaps(),"1"); // on creer un 1er boutton
+        GameObject lastButton =  createButton(generatePointInMaps(),""); // on creer un 1er boutton
         for (int i = 2; i < level; i++) // pour chaque niveau on genere un boutton proche de l'ancien
         {
-            lastButton = createButton(generatePointNear(new Vector2(lastButton.transform.position.x, lastButton.transform.position.y),80), i.ToString());
+            lastButton = createButton(generatePointNear(new Vector2(lastButton.transform.position.x, lastButton.transform.position.y),80), "");
         }
        
     }
@@ -58,7 +58,8 @@ public class Maps : MonoBehaviour
 
     void generateCombatScene()
     {
-
+        // algorithme aleratoire qui definit la scene
+        SoundManager.instance.RandomizeSfx(confirm);
         Debug.Log(" -- scene de Combat crée --");
 
     }
@@ -127,12 +128,7 @@ public class Maps : MonoBehaviour
         return position;
     }
 
-    public void zoneCombat()
-    {
-        // algorithme aleratoire qui definit la scene
-        Debug.Log(" -- scene de Combat --");
-
-    }
+   
 
 
     /*
