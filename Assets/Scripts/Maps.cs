@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Maps : MonoBehaviour
 {
@@ -190,6 +191,7 @@ public class Maps : MonoBehaviour
     {
 
         SoundManager.instance.RandomizeSfx(confirm);
+       // SceneManager.LoadScene("Combat_scrypt_exemple");
 
     }
 
