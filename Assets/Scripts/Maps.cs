@@ -12,6 +12,7 @@ public class Maps : MonoBehaviour
     
     public GameObject buttonPrefabRed; // bouton rouge indiquant un lieu a visiter
     public GameObject canvas; // this
+    
 
     public GameObject BoxDialog,TextDialog;
 
@@ -19,7 +20,11 @@ public class Maps : MonoBehaviour
 
     public static Maps instance = null; // variable permettant de rendre la classe static
 
+    bool boolean = false;
+    GameObject button;
     //permet de rendre la classe static
+
+
     void Awake()
     {
         //Check if there is already an instance of SoundManager
@@ -35,31 +40,67 @@ public class Maps : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
+        
 
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager.instance.PlaySingle(music);
+        Debug.Log("start maps scene ");
+        button = new GameObject();
+        //SoundManager.instance.PlaySingle(music);
 
-        GameObject lastButton =  createButton(generatePointInMaps(),""); // on creer un 1er boutton
+       //GameObject lastButton =  createButton(generatePointInMaps(),""); // on creer un 1er boutton
         for (int i = 2; i < level; i++) // pour chaque niveau on genere un boutton proche de l'ancien
         {
-            lastButton = createButton(generatePointNear(new Vector2(lastButton.transform.position.x, lastButton.transform.position.y),80), "");
+            //lastButton = createButton(generatePointNear(new Vector2(lastButton.transform.position.x, lastButton.transform.position.y),80), "");
         }
         BoxDialog.SetActive(false);
-       
+       // createButtonCombat(generatePointInMaps(), "");
+
+        Debug.Log("end start maps scene ");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+        Debug.Log("update maps scene ");
+        if (boolean== true)
+        {
+            createButton(generatePointInMaps(), "");
+            boolean = false;
+        }
+        Debug.Log("update end map scene ");*/
     }
 
+ public void ShowDialog()
+    {
+        BoxDialog.SetActive(true);
+    }
+
+    private void createButtonCombat(Vector2 position, string text)
+    {
+        boolean = true;
+        /*
+        GameObject button = (GameObject)Instantiate(buttonPrefabRed);
+
+        //button.transform.position = new Vector3(position.x, position.y, 0);
+
+        button.transform.SetPositionAndRotation(new Vector3(position.x, position.y, 0), new Quaternion(0, 0, 0, 0));
+
+        button.transform.SetParent(canvas.transform);//Setting button parent
 
 
-   
+        //button.transform.position = new Vector3(position.x,position.y,0);
+
+
+
+        button.GetComponent<Button>().onClick.AddListener(generateCombatScene);//Setting what button does when clicked
+        button.transform.GetChild(0).GetComponent<Text>().text = text;//Changing text
+
+ */
+    }
+
     /**
      * utlisé pour creer un nouveau lieu a visiter
      * @param position = position du button sur le background
@@ -67,49 +108,53 @@ public class Maps : MonoBehaviour
      * */
     private GameObject createButton(Vector2 position,string text)
     {
-
-        GameObject button = (GameObject)Instantiate(buttonPrefabRed);
-
+        Debug.Log("create button ");
+        button = Instantiate(buttonPrefabRed) as GameObject ;
+        Debug.Log("instantiate ");
         //button.transform.position = new Vector3(position.x, position.y, 0);
 
         button.transform.SetPositionAndRotation(new Vector3(position.x, position.y, 0), new Quaternion(0,0,0,0));
-
+        Debug.Log("position maps scene ");
         button.transform.SetParent(canvas.transform);//Setting button parent
-        
+        Debug.Log("canvas set parent ");
+
 
         //button.transform.position = new Vector3(position.x,position.y,0);
 
-        
-     
+
+
         button.GetComponent<Button>().onClick.AddListener(generateCombatScene);//Setting what button does when clicked
         button.transform.GetChild(0).GetComponent<Text>().text = text;//Changing text
+        Debug.Log("Text maps scene ");
 
         return button;
     }
     /**
      * utilisé pour genere la position du 1er point
-     * */
+     *//*
     private Vector2 generatePointInMaps()
     {
-        Vector2 position;
-
+        Vector2 position = new Vector2(150,150);
+        Debug.Log("generte point maps scene ");
+     
         do
         {
             position = new Vector2(Random.Range(100, 550), Random.Range(25, 350)); // on creer un pts random
-          
+        
+            Debug.Log("NEW POSITION X :"+position.x+" Y:"+position.y);
 
         } while (!canvas.GetComponent<PolygonCollider2D>().OverlapPoint(position)); // on verifie qu'il est dans le canevas
-       
-        
+        //canvas.GetComponent<PolygonCollider2D>().bounds.Contains(position);
+        Debug.Log("position found and Overlap =  " + canvas.GetComponent<PolygonCollider2D>().OverlapPoint(position));
         // canvas.GetComponent<PolygonCollider2D>().OverlapPoint(position);
 
 
         return position;
 
-    }
+    }*/
     /**
      * permet de generer un position proche d'une position donnée
-     * */
+     * *//*
     private Vector2 generatePointNear(Vector2 pts,float distanceMax)
     {
         Vector2 position;
@@ -123,10 +168,10 @@ public class Maps : MonoBehaviour
 
         Debug.Log(" ------ FIN ------ position x : " + position.x + " position y " + position.y);
         return position;
-    }
+    }*/
 
 
-
+   
 
 
     void generateCombatScene()
