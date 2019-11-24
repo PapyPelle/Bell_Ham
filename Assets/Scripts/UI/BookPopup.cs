@@ -10,6 +10,9 @@ public class BookPopup : MonoBehaviour
 
 	int num_capacity;
 
+
+	
+
 	public GameObject c1 = null;
 	public GameObject c2 = null;
 	public GameObject c3 = null;
@@ -21,6 +24,11 @@ public class BookPopup : MonoBehaviour
 	public GameObject a4 = null;
 	public GameObject a5 = null;
 	public GameObject a6 = null;
+
+	public int comp1 = 0;
+	public int comp2 = 0;
+	public int comp3 = 0;
+	public int comp4 = 0;
 
 	Image img;
 
@@ -61,21 +69,45 @@ public class BookPopup : MonoBehaviour
 
 
     public void SetCapacity(GameObject go) {
-    	popup.SetActive(false);
-    	SoundManager.instance.RandomizeSfx(click);
-		if (num_capacity==1) {
-			img = c1.GetComponent<Image>();
+    	//vérification compétence déjà prise
+    	if (c1.GetComponent<Image>().sprite == go.GetComponent<Image>().sprite)
+    	{
+    		SoundManager.instance.RandomizeSfx(click);
+    	}
+    	else if (c2.GetComponent<Image>().sprite == go.GetComponent<Image>().sprite)
+    	{
+    		SoundManager.instance.RandomizeSfx(click);
+    	}
+    	else if (c3.GetComponent<Image>().sprite == go.GetComponent<Image>().sprite)
+    	{
+    		SoundManager.instance.RandomizeSfx(click);
+    	}
+    	else if (c4.GetComponent<Image>().sprite == go.GetComponent<Image>().sprite)
+    	{
+    		SoundManager.instance.RandomizeSfx(click);
+    	}
+    	else
+    	{
+	    	popup.SetActive(false);
+	    	SoundManager.instance.RandomizeSfx(click);
+			if (num_capacity==1) {
+				img = c1.GetComponent<Image>();
+				comp1 = 1;
+			}
+			if (num_capacity==2) {
+				img = c2.GetComponent<Image>();
+				comp2 = 1;
+			}
+			if (num_capacity==3) {
+				img = c3.GetComponent<Image>();
+				comp3 = 1;
+			}
+			if (num_capacity==4) {
+				img = c4.GetComponent<Image>();
+				comp4 = 1;	
+			}
+			img.sprite = go.GetComponent<Image>().sprite;
 		}
-		if (num_capacity==2) {
-			img = c2.GetComponent<Image>();
-		}
-		if (num_capacity==3) {
-			img = c3.GetComponent<Image>();
-		}
-		if (num_capacity==4) {
-			img = c4.GetComponent<Image>();	
-		}
-		img.sprite = go.GetComponent<Image>().sprite;
     }
 
 

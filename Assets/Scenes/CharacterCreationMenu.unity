@@ -330,7 +330,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attaque magique
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &28990304
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48eb9e6f087ca714f9c73f4560fab8b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 928511943266f334789fd31116d00ffa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -546,7 +546,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "D\xE9fense"
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &38856240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 55991186}
   m_OnClick:
     m_PersistentCalls:
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -964,6 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c2aa6d00ede1c4f9ca29354150b0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  v_left: 10
   left: {fileID: 1325796752}
   con: {fileID: 26791577}
   forc: {fileID: 593752216}
@@ -1028,7 +1029,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1039,7 +1040,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attaque de base : Attaque physique infligeant XX de d\xE9gat \xE0 la cible."
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &64276267
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1456,7 +1457,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1467,7 +1468,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Utilitaire
+  m_Text: "Peau neuve\r : Endurance : 20 points\r\nMana : 15 points \r\nEffet : Retire
+    tous les malus que le personnage poss\xE8de\r. Chance de critique : 15% \r\n"
 --- !u!222 &99533100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1683,7 +1685,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1694,7 +1696,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attaque magique
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &161522041
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2254,7 +2256,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2265,7 +2267,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "D\xE9fense"
+  m_Text: "Armure magique\r\r : Endurance : 10 points\r\nMana : 15 points \r\nEffet
+    : Armure +3 pendant 2 tours\r\nChance de critique : 15% \r\n"
 --- !u!222 &258631080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2287,6 +2290,7 @@ GameObject:
   - component: {fileID: 272496296}
   - component: {fileID: 272496295}
   - component: {fileID: 272496299}
+  - component: {fileID: 272496300}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2409,6 +2413,23 @@ MonoBehaviour:
   a4: {fileID: 0}
   a5: {fileID: 0}
   a6: {fileID: 0}
+  comp1: 0
+  comp2: 0
+  comp3: 0
+  comp4: 0
+  click: {fileID: 8300000, guid: 7e58c1718e011c847949792efd486a17, type: 3}
+--- !u!114 &272496300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272496294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee02a8acb0921848a6097bd66a0d0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   click: {fileID: 8300000, guid: 7e58c1718e011c847949792efd486a17, type: 3}
 --- !u!1 &275538321
 GameObject:
@@ -2621,7 +2642,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2632,7 +2653,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Utilitaire
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &293318113
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2771,7 +2792,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2782,7 +2803,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "D\xE9fense"
+  m_Text: "Rune de pierre\r : Mana : 15 points \r\nEffet : Armure +1 pendant 4 tours\nChance
+    de critique : 25% \r\n"
 --- !u!222 &334419576
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2901,7 +2923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ee9e1e2d0b1e994da5aed62ff85833c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2de28850d7126aa44ad366dc6b1fb698, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3181,7 +3203,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3192,7 +3214,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attaque de base : Attaque physique infligeant XX de d\xE9gat \xE0 la cible."
+  m_Text: "Coupe veine\r : D\xE9g\xE2ts : 10 - 15\nEndurance : 15 points \r\nEffet
+    : Saignement\nChance de critique : 5% \r\n"
 --- !u!222 &355361906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3277,7 +3300,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 359023365}
   m_OnClick:
     m_PersistentCalls:
@@ -3306,7 +3329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4158,7 +4181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8dfd5c75fb3e2f140a1b6cba0a31371d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a821ca2d4f54ef645b2a2318409e46cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4328,7 +4351,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 573704806}
   m_OnClick:
     m_PersistentCalls:
@@ -4357,7 +4380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5585,7 +5608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "D\xE9fense"
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &771948695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5651,7 +5674,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -5662,7 +5685,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Utilitaire
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &779982189
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5781,7 +5804,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 91a45cbc0bf112748ad4b991d63eb4b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db0ce8c973a51d245ae1831e7852bc1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6238,7 +6261,6 @@ GameObject:
   - component: {fileID: 832491378}
   - component: {fileID: 832491380}
   - component: {fileID: 832491379}
-  - component: {fileID: 832491381}
   m_Layer: 5
   m_Name: startimg
   m_TagString: Untagged
@@ -6302,19 +6324,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832491377}
   m_CullTransparentMesh: 0
---- !u!114 &832491381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832491377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee02a8acb0921848a6097bd66a0d0d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  click: {fileID: 8300000, guid: 7e58c1718e011c847949792efd486a17, type: 3}
 --- !u!1 &838638772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6425,7 +6434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b506f1293c4b9d43a155481ed13caa9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f44ab27b438591e4591fb96481f6e972, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6500,7 +6509,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6511,7 +6520,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "D\xE9fense"
+  m_Text: "Parade \r: Endurance : 20 points\r\nEffet : R\xE9duit de 50% deux attaques
+    lors du prochain tour des ennemies\r\nChance de critique : 0% \r\n"
 --- !u!222 &870386964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6577,7 +6587,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6588,7 +6598,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attaque magique
+  m_Text: "Fouet de gel\r : D\xE9g\xE2ts : 20 - 25\nMana : 20 points \r\nEffet : Gel
+    \r\nChance de critique : 20% \r\n"
 --- !u!222 &916721386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6654,7 +6665,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6665,7 +6676,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attaque magique
+  m_Text: "Flaque de poison\r : D\xE9g\xE2ts : 10 - 15\nMana : 10 points \r\nEffet
+    : Poison\r\nChance de critique : 10% \r\n"
 --- !u!222 &920808305
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6784,7 +6796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1084ee859a7566f41a18183e182ebb54, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51e6b4d9a81631f43b4de9fe9b86301f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6935,7 +6947,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6946,7 +6958,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attaque magique
+  m_Text: "Eclair paralysant\r : D\xE9g\xE2ts : 15 - 20\nMana : 10 points \r\nEffet
+    : Paralysant \r\nChance de critique : 15% \r\n"
 --- !u!222 &948608975
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7231,7 +7244,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7242,7 +7255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attaque de base : Attaque physique infligeant XX de d\xE9gat \xE0 la cible."
+  m_Text: "Comp\xE9tence encore inconnue"
 --- !u!222 &1035171797
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7400,7 +7413,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1043014809}
   m_OnClick:
     m_PersistentCalls:
@@ -7429,7 +7442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7679,7 +7692,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7690,7 +7703,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attaque de base : Attaque physique infligeant XX de d\xE9gat \xE0 la cible."
+  m_Text: "Impact lourd\r : D\xE9g\xE2ts : 20 - 25\nEndurance : 25 points \r\nEffet
+    : \xC9tourdissement\r\nChance de critique : 10% \r\n"
 --- !u!222 &1066836001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7756,7 +7770,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7767,7 +7781,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Utilitaire
+  m_Text: "Premier soin\r : Endurance : 20 points\r\nEffet : Restaure 10 points de
+    vie et annule le saignement \r\nChance de critique : 15% \r\n"
 --- !u!222 &1124421801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8189,7 +8204,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -8200,7 +8215,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Utilitaire
+  m_Text: "Concentration parfaite\r : Endurance : 5 points\r\nMana : 15 points \r\nEffet
+    : R\xE9duit de 1 tours le cd de toutes les attaques\r\nChance de critique : 15%
+    \r\n"
 --- !u!222 &1158963141
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8361,7 +8378,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1183124832}
   m_OnClick:
     m_PersistentCalls:
@@ -8390,7 +8407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9557,7 +9574,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9568,7 +9585,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attaque de base : Attaque physique infligeant XX de d\xE9gat \xE0 la cible."
+  m_Text: "Attaque basique\r : D\xE9g\xE2ts : 10 - 20\nEndurance : 10 points\nChance
+    de critique : 5% \r\n"
 --- !u!222 &1413682077
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9882,7 +9900,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1456017937}
   m_OnClick:
     m_PersistentCalls:
@@ -9911,7 +9929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10194,7 +10212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28d8b3a3c1230c849a400d47d8149ed6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 285cef9beb8bb3d46864918ac0ebff3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10468,7 +10486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e548e513b0835114d9135bbd5c5768f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05f61e45975513a45b38e03e6e6d1d49, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10543,7 +10561,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -10554,7 +10572,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attaque magique
+  m_Text: "Boule de feu\r : D\xE9g\xE2ts : 20 - 25\nMana : 15 points \r\nEffet : Br\xFBlure
+    \r\nChance de critique : 15% \r\n"
 --- !u!222 &1537866058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11203,7 +11222,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -11214,7 +11233,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "D\xE9fense"
+  m_Text: "Corne de taureau\r :\r Endurance : 15 points\r\nMana : 5 points \r\nEffet
+    : renvoie 5 points de d\xE9g\xE2ts si subit attaque physique. Chance de critique
+    : 15% \r\n"
 --- !u!222 &1635451928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11410,7 +11431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 76684d3b1922abf49b7b2db9c2d734cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 164c846953fdcb84bbf089abf130921f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11761,7 +11782,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 248c5b49fa25c704991440670964ed49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d63ec0793c2166b4cb1129de6f2895ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11840,7 +11861,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11860,7 +11881,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 832491381}
+      - m_Target: {fileID: 272496300}
         m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
@@ -12323,7 +12344,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -12334,7 +12355,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Utilitaire
+  m_Text: "Infusion runique\r : Mana : 20 points \r\nEffet : Ajoute +5 \xE0 tous les
+    d\xE9g\xE2ts physique\nde ce tour \r\nChance de critique : 25% \r\n"
 --- !u!222 &1824517238
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12578,7 +12600,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
-    m_FontSize: 20
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -12589,7 +12611,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attaque de base : Attaque physique infligeant XX de d\xE9gat \xE0 la cible."
+  m_Text: "Brise-os\r : D\xE9g\xE2ts : 15 - 20\nEndurance : 15 points \r\nEffet :
+    \xC9tourdissement\r\nChance de critique : 5% \r\n"
 --- !u!222 &1842171473
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12785,7 +12808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 98297b952b28d494b94b8eaf4e225daf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe4696cd930b512499a7967b8c1a4774, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13150,7 +13173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42efdfb0a9fcf144b9420d3a5c252529, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4571f29c96a71164dba96b88c29446bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13505,7 +13528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 36eab4bb7069e91469b6d4573855c1aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d78a58ee2154002489dbc6c9aec97159, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14299,7 +14322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a821ca2d4f54ef645b2a2318409e46cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e05c8e1f5f8df9a4da4ec33c33ab6392, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14535,7 +14558,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2059779343}
   m_OnClick:
     m_PersistentCalls:
@@ -14564,7 +14587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14697,7 +14720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 315e860b9678ee341b2bf9e0a60c3827, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e819c87f020c7f42b61114b7363dc06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15223,7 +15246,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2141966602}
   m_OnClick:
     m_PersistentCalls:
@@ -15252,7 +15275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
