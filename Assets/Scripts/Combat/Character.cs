@@ -18,6 +18,7 @@ public abstract class Character : MonoBehaviour
 
     // Savoir si l'on peut agir
     public bool my_turn = false;
+    public bool attacking = false;
 
     // Combat en cours
     public CombatManager combat;
@@ -25,6 +26,11 @@ public abstract class Character : MonoBehaviour
     // Les spells disponibles
     public Skill[] list_of_skills = new Skill[4];
 
+    // Les status affectant le joueur
+    public List<Status> status = new List<Status>();
+
+    // truc pas propre pour accèder au corps anime
+    public CharacterBattle me_body;
 
     // -- Fonctions à override -- //
 
@@ -35,7 +41,7 @@ public abstract class Character : MonoBehaviour
     protected abstract void GetCharacterInfo();
 
     // Effectue son action du tour (ennemi = ai, joueur = inputs)
-    protected abstract void TakeTurn();
+    public abstract void TakeTurn();
 
     // -- -------------------- -- //
 
@@ -65,7 +71,7 @@ public abstract class Character : MonoBehaviour
             is_alive = false;
         }
         // Vérifie si on doit jouer
-        if (my_turn)
+        if (my_turn && !attacking)
         {
             if (!is_alive)
             {
@@ -80,18 +86,47 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public void StartTurn()
+    {
+        if (!is_alive)
+            return;
+        foreach(Status s in status)
+        {
+            s.EffectStart();
+        }
+        me_body.ShowSelectionCircle();
+        my_turn = true;        
+    }
+
 
     /**
      * Termine le tour du combattant (récup energies et application d'effet ??)
      */
-    protected void EndTurn()
+    public void EndTurn()
     {
+        if (attacking)
+            return;
+        me_body.HideSelectionCircle();
+        foreach (Status s in status)
+        {
+            s.EffectEnd();
+        }
         // foreach(affectation on me) affectation.affect(me); ?
-        Debug.Log(gameObject.name + "end turn, stats (" + current_stats[0] + "," + current_stats[1] + "," + current_stats[2] + ")");
-        my_turn = false;
+        Debug.Log(gameObject.name + " end turn, stats (" + current_stats[0] + "," + current_stats[1] + "," + current_stats[2] + ")");
         current_stats[1] = max_energy;
         current_stats[2] = max_mana;
+        my_turn = false;
     }
 
+
+    public void AddStatus(Status s)
+    {
+        status.Add(s);
+    }
+
+    public void RemoveStatus(Status s)
+    {
+        status.Remove(s);
+    }
 
 }

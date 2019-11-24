@@ -4,6 +4,29 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    // ----------- donée de l'animation --------------
+    public AudioClip soundDeath;
+    public AudioClip soundDash;
+    public AudioClip soundAttack;
+    private static CombatManager instance;
+
+    public static CombatManager GetInstance()
+    {
+        return instance;
+    }
+
+
+    [SerializeField] private Transform pfCharacterBattle;
+    public Texture2D playerSpritesheet;
+    public Texture2D enemySpritesheet;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    // ------------------------------------------------
+
     // Liste des combattants et indice du tour
     public Character[] fighter_list;
     private int current_fighter = 0;
@@ -13,9 +36,19 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach (Character c in fighter_list)
+            c.combat = this;
         // Au début du combat, on décide de l'ordre d'action
         SortFighters();
-        fighter_list[0].my_turn = true;
+        // On instantie le corps anime
+        fighter_list[0].me_body = SpawnCharacter(true, 0);
+        for (int i=1; i < fighter_list.Length; i++)
+        {
+            fighter_list[i].me_body = SpawnCharacter(false, i);
+        }
+        // Lance le combat
+        fighter_list[0].me_body.ShowSelectionCircle();
+        fighter_list[0].StartTurn();
     }
 
 
@@ -28,11 +61,11 @@ public class CombatManager : MonoBehaviour
             NextFighter();
         }
         // Si le combat est fini, on termine
-/*        int combat_result = CheckEndOfCombat();
+        int combat_result = CheckEndOfCombat();
         if (combat_result != 0)
         {
             EndFight(combat_result == 1);
-        }*/
+        }
     }
 
 
@@ -63,7 +96,11 @@ public class CombatManager : MonoBehaviour
     private void NextFighter()
     {
         current_fighter = (current_fighter + 1) % fighter_list.Length;
-        fighter_list[current_fighter].my_turn = true;
+        if (fighter_list[current_fighter].is_alive)
+        {
+            fighter_list[current_fighter].StartTurn();
+        }
+     
     }
 
 
@@ -73,14 +110,14 @@ public class CombatManager : MonoBehaviour
     private int CheckEndOfCombat()
     {
         // Si le joueur est mort : -1
-        if (fighter_list[player_i].gameObject.CompareTag("Player") && !fighter_list[player_i].is_alive)
+        if (!fighter_list[player_i].is_alive)
         {
             return -1;
         }
         // Si un ennemi est vivant (et donc joueur aussi) : 0
         foreach (Character c in fighter_list)
         {
-            if (!c.gameObject.CompareTag("Player") && c.is_alive)
+            if (c != fighter_list[player_i] && c.is_alive)
             {
                 return 0;
             }
@@ -113,4 +150,21 @@ public class CombatManager : MonoBehaviour
         return fighter_list[player_i];
     }
 
+    private CharacterBattle SpawnCharacter(bool isPlayerTeam, int i)
+    {
+        Vector3 position;
+        if (isPlayerTeam)
+        {
+            position = new Vector3(-50, 0);
+        }
+        else
+        {
+            position = new Vector3(+50, -60 + i * 25);
+        }
+        Transform characterTransform = Instantiate(pfCharacterBattle, position, Quaternion.identity);
+        CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
+        characterBattle.Setup(isPlayerTeam, fighter_list[i]);
+
+        return characterBattle; 
+    }
 }

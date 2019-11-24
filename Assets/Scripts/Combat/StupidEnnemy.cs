@@ -13,8 +13,10 @@ public class StupidEnnemy : Character
         list_of_skills[0] = new Slam();
     }
     
-    protected override void TakeTurn()
+    public override void TakeTurn()
     {
+        if (attacking)
+            return;
         Debug.Log("MONSTER SLAM");
         list_of_skills[0].Activate(this, ChoseTarget());
         EndTurn();

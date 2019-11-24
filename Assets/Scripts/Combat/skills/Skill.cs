@@ -5,6 +5,8 @@ using UnityEngine;
 // La classe générique pour les compétences
 public class Skill // : MonoBehaviour
 {
+    public enum CastType : int { life, energy, mana };
+
     // Cout de lancement
     public int cost;
     // Type de stat consommée (potentiellement inutile : heritage)
@@ -24,11 +26,7 @@ public class Skill // : MonoBehaviour
 
     public virtual void Activate(Character caster, Character target)
     {
-        if (target != null && IsValidTarget(caster, target))
-        {
-            target.current_stats[0] -= damage;
-        }
-        caster.current_stats[cast_type] -= cost;    
+        caster.current_stats[cast_type] -= cost;
     }
 
 }

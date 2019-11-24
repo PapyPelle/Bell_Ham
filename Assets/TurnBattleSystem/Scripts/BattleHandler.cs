@@ -49,7 +49,7 @@ public class BattleHandler : MonoBehaviour {
                 while (characterBattle[i].IsDead())
                     i++;
                 state = State.Busy;
-                characterBattle[0].Attack(characterBattle[i], () => {
+                characterBattle[0].Attack(10, characterBattle[i], () => {
                     ChooseNextActiveCharacter();
                 });
                 SoundManager.instance.RandomizeSfx(soundDash);
@@ -59,21 +59,24 @@ public class BattleHandler : MonoBehaviour {
         }
     }
 
-    private CharacterBattle SpawnCharacter(bool isPlayerTeam, int i) {
+    private CharacterBattle SpawnCharacter(bool isPlayerTeam, int i)
+    {
         Vector3 position;
-        if (isPlayerTeam) {
+        if (isPlayerTeam)
+        {
             position = new Vector3(-50, 0);
-        } else {
+        }
+        else
+        {
             position = new Vector3(+50, -60 + i * 25);
         }
         Transform characterTransform = Instantiate(pfCharacterBattle, position, Quaternion.identity);
         CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
-        characterBattle.Setup(isPlayerTeam);
 
         return characterBattle;
     }
 
-    private void SetActiveCharacterBattle(CharacterBattle characterBattle) {
+private void SetActiveCharacterBattle(CharacterBattle characterBattle) {
         if (activeCharacterBattle != null) {
             activeCharacterBattle.HideSelectionCircle();
         }
@@ -93,14 +96,15 @@ public class BattleHandler : MonoBehaviour {
         SetActiveCharacterBattle(characterBattle[activeIndice]);
 
         if (activeIndice != 0) {
-            
+            // debut atck
             state = State.Busy;
             
-            characterBattle[activeIndice].Attack(characterBattle[0], () => {
+            characterBattle[activeIndice].Attack(10, characterBattle[0], () => {
                 ChooseNextActiveCharacter();
             });
             SoundManager.instance.RandomizeSfx(soundDash);
             SoundManager.instance.RandomizeSfx(soundAttack);
+            // fin atck
         } else {
             state = State.WaitingForPlayer;
         }

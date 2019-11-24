@@ -15,32 +15,29 @@ public class CharacterBattle : MonoBehaviour {
     private HealthSystem healthSystem;
     private World_Bar healthBar;
 
+
     private enum State {
         Idle,
         Sliding,
         Busy,
     }
 
-    private void Awake() {
+
+    public void Setup(bool isPlayerTeam, Character fighter) {
         characterBase = GetComponent<Character_Base>();
         selectionCircleGameObject = transform.Find("SelectionCircle").gameObject;
         HideSelectionCircle();
         state = State.Idle;
-    }
 
-    private void Start() {
-    }
-
-    public void Setup(bool isPlayerTeam) {
         this.isPlayerTeam = isPlayerTeam;
         if (isPlayerTeam) {
             characterBase.SetAnimsSwordTwoHandedBack();
-            characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().playerSpritesheet;
-            healthSystem = new HealthSystem(500);
+            characterBase.GetMaterial().mainTexture = CombatManager.GetInstance().playerSpritesheet;
+            healthSystem = new HealthSystem(fighter.max_life);
         } else {
             characterBase.SetAnimsSwordShield();
-            characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet;
-            healthSystem = new HealthSystem(100);
+            characterBase.GetMaterial().mainTexture = CombatManager.GetInstance().enemySpritesheet;
+            healthSystem = new HealthSystem(fighter.max_life);
         }
         
         healthBar = new World_Bar(transform, new Vector3(0, 10), new Vector3(12, 1.7f), Color.grey, Color.red, 1f, 100, new World_Bar.Outline { color = Color.black, size = .6f });
@@ -85,6 +82,7 @@ public class CharacterBattle : MonoBehaviour {
         return transform.position;
     }
 
+
     public void Damage(CharacterBattle attacker, int damageAmount) {
         healthSystem.Damage(damageAmount);
         //CodeMonkey.CMDebug.TextPopup("Hit " + healthSystem.GetHealthAmount(), GetPosition());
@@ -106,7 +104,7 @@ public class CharacterBattle : MonoBehaviour {
         return healthSystem.IsDead();
     }
 
-    public void Attack(CharacterBattle targetCharacterBattle, Action onAttackComplete) {
+    public void Attack(int damageAmount, CharacterBattle targetCharacterBattle, Action onAttackComplete) {
         Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
         Vector3 startingPosition = GetPosition();
 
@@ -117,7 +115,6 @@ public class CharacterBattle : MonoBehaviour {
             Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
             characterBase.PlayAnimAttack(attackDir, () => {
                 // Target hit
-                int damageAmount = UnityEngine.Random.Range(20, 50);
                 targetCharacterBattle.Damage(this, damageAmount);
                 }, () => {
                 // Attack completed, slide back
