@@ -294,10 +294,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_alive: 1
   max_life: 200
-  max_energy: 100
+  max_energy: 60
   max_mana: 100
   current_stats: 000000000000000000000000
   my_turn: 0
+  attacking: 0
   combat: {fileID: 176755872}
   me_body: {fileID: 0}
 --- !u!4 &80772218
@@ -883,11 +884,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_alive: 1
-  max_life: 50
+  max_life: 100
   max_energy: 50
   max_mana: 0
   current_stats: 000000000000000000000000
   my_turn: 0
+  attacking: 0
   combat: {fileID: 176755872}
   me_body: {fileID: 0}
 --- !u!4 &574533282
@@ -1684,11 +1686,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_alive: 1
-  max_life: 50
+  max_life: 70
   max_energy: 50
   max_mana: 0
   current_stats: 000000000000000000000000
   my_turn: 0
+  attacking: 0
   combat: {fileID: 176755872}
   me_body: {fileID: 0}
 --- !u!4 &1595746200
@@ -1735,11 +1738,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_alive: 1
-  max_life: 50
+  max_life: 120
   max_energy: 50
   max_mana: 0
   current_stats: 000000000000000000000000
   my_turn: 0
+  attacking: 0
   combat: {fileID: 176755872}
   me_body: {fileID: 0}
 --- !u!4 &1749097826

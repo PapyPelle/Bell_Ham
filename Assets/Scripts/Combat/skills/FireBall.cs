@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slam : Skill
+public class FireBall : Skill
 {
-    public Slam()
+    public FireBall()
     {
-        amount = 10;
-        cost = 30;
-        cast_type = (int) CastType.energy;
+        amount = 50;
+        cost = 100;
+        cast_type = (int)CastType.mana;
     }
 
     public override bool IsCastable(Character caster)
@@ -34,11 +34,11 @@ public class Slam : Skill
                 caster.current_stats[cast_type] -= cost;
                 // Le critique multiplicatif
                 int mult_crit = 1;
-                if (Random.Range(0, 20) <= 1.0) // 5%
+                if (Random.Range(0, 5) <= 1.0) // 20%
                     mult_crit = 2;
                 // Application des dégâts
                 target.current_stats[(int)CastType.life] -= amount * mult_crit;
-                caster.me_body.Attack(amount * mult_crit, target.me_body, () => { caster.attacking = false; });
+                caster.me_body.Cast(amount * mult_crit, target.me_body, () => { caster.attacking = false; });
             }
             else
             {

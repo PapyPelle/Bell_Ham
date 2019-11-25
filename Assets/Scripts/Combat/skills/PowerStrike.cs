@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slam : Skill
+public class PowerStrike : Skill
 {
-    public Slam()
+    public PowerStrike()
     {
-        amount = 10;
-        cost = 30;
-        cast_type = (int) CastType.energy;
+        amount = 20;
+        cost = 50;
+        cast_type = (int)CastType.energy;
     }
 
     public override bool IsCastable(Character caster)
@@ -32,10 +32,10 @@ public class Slam : Skill
             {
                 caster.attacking = true;
                 caster.current_stats[cast_type] -= cost;
-                // Le critique multiplicatif
+                // Le critique chance de stun
                 int mult_crit = 1;
-                if (Random.Range(0, 20) <= 1.0) // 5%
-                    mult_crit = 2;
+                if (Random.Range(0, 20) <= 10.0) // 50%
+                    target.AddStatus(new Stun(1, target));
                 // Application des dégâts
                 target.current_stats[(int)CastType.life] -= amount * mult_crit;
                 caster.me_body.Attack(amount * mult_crit, target.me_body, () => { caster.attacking = false; });

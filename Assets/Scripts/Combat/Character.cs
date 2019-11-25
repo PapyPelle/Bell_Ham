@@ -90,12 +90,13 @@ public abstract class Character : MonoBehaviour
     {
         if (!is_alive)
             return;
-        foreach(Status s in status)
+        me_body.ShowSelectionCircle();
+        my_turn = true;
+        foreach (Status s in status)
         {
             s.EffectStart();
         }
-        me_body.ShowSelectionCircle();
-        my_turn = true;        
+               
     }
 
 
@@ -106,11 +107,11 @@ public abstract class Character : MonoBehaviour
     {
         if (attacking)
             return;
-        me_body.HideSelectionCircle();
         foreach (Status s in status)
         {
             s.EffectEnd();
         }
+        me_body.HideSelectionCircle();
         // foreach(affectation on me) affectation.affect(me); ?
         Debug.Log(gameObject.name + " end turn, stats (" + current_stats[0] + "," + current_stats[1] + "," + current_stats[2] + ")");
         current_stats[1] = max_energy;

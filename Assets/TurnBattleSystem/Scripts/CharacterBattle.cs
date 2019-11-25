@@ -128,6 +128,24 @@ public class CharacterBattle : MonoBehaviour {
         });
     }
 
+    public void Cast(int amount, CharacterBattle targetCharacterBattle, Action onAttackComplete)
+    {
+        Vector3 slideTargetPosition = targetCharacterBattle.GetPosition() + (GetPosition() - targetCharacterBattle.GetPosition()).normalized * 10f;
+        Vector3 startingPosition = GetPosition();
+
+        state = State.Busy;
+        Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
+        characterBase.PlayAnimAttack(attackDir, () => {
+            // Target hit
+            targetCharacterBattle.Damage(this, amount);
+        }, () => {
+                // Back to idle
+                state = State.Idle;
+                characterBase.PlayAnimIdle(attackDir);
+                onAttackComplete();
+            });
+    }
+
     private void SlideToPosition(Vector3 slideTargetPosition, Action onSlideComplete) {
         this.slideTargetPosition = slideTargetPosition;
         this.onSlideComplete = onSlideComplete;
