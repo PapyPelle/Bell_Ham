@@ -30,6 +30,7 @@ public class Poison : Status
     public override void EffectEnd()
     {
         owner.current_stats[0] -= damage;
+        owner.me_body.Damage(owner.me_body, damage);
     }
 }
 
@@ -52,16 +53,16 @@ public class Stun : Status
 
     public override void EffectStart()
     {
-        if (turn_remaining >= 0)
+        if (turn_remaining > 0)
         {
             // Attention ! skip les autres effets au start !!! Pas bon
+            turn_remaining -= 1;
             owner.EndTurn();
         }
         else
         {
-            owner.RemoveStatus(this);
+            // owner.RemoveStatus(this);
         }
-        turn_remaining--;
     }
 }
 

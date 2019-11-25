@@ -12,7 +12,7 @@ public class Skill // : MonoBehaviour
     // Type de stat consommée (potentiellement inutile : heritage)
     public int cast_type;
 
-    public int damage;
+    public int amount;
 
     public virtual bool IsCastable(Character caster)
     {
