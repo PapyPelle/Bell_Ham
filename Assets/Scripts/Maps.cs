@@ -28,6 +28,8 @@ public class Maps : MonoBehaviour
 
     void Awake()
     {
+        
+        /*
         //Check if there is already an instance of SoundManager
         if (instance == null)
             //if not, set it to this.
@@ -39,6 +41,10 @@ public class Maps : MonoBehaviour
 
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad(gameObject);
+        
+        buttonPrefabRed.SetActive(true);*/
+        Debug.Log("Awake");
+
     }
 
         
@@ -56,7 +62,8 @@ public class Maps : MonoBehaviour
             //lastButton = createButton(generatePointNear(new Vector2(lastButton.transform.position.x, lastButton.transform.position.y),80), "");
         }
         BoxDialog.SetActive(false);
-       // createButtonCombat(generatePointInMaps(), "");
+        
+        // createButtonCombat(generatePointInMaps(), "");
 
         Debug.Log("end start maps scene ");
     }
@@ -64,6 +71,7 @@ public class Maps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         /*
         Debug.Log("update maps scene ");
         if (boolean== true)
@@ -191,7 +199,9 @@ public class Maps : MonoBehaviour
     {
 
         SoundManager.instance.RandomizeSfx(confirm);
-        canvas.SetActive(false);
+        BoxDialog.SetActive(false);
+        //canvas.SetActive(false);
+        buttonPrefabRed.SetActive(false);
         SceneManager.LoadScene("Event");
 
     }
