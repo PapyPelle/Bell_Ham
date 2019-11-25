@@ -34,7 +34,7 @@ public class Heal : Skill
                     target.current_stats[(int)CastType.life] += amount;
                 else
                     target.current_stats[(int)CastType.life] = target.max_life;
-                caster.me_body.Cast(-amount, caster.me_body, () => { caster.attacking = false; });
+                caster.me_body.Cast(-amount, null,  caster.me_body, () => { caster.attacking = false; });
             }
             else
             {

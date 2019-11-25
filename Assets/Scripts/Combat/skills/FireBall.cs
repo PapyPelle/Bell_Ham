@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class FireBall : Skill
 {
+    private GameObject fireballPrefab;
+
     public FireBall()
     {
         amount = 50;
         cost = 100;
         cast_type = (int)CastType.mana;
+        fireballPrefab = (GameObject)Resources.Load("fireball", typeof(GameObject));
+
     }
 
     public override bool IsCastable(Character caster)
@@ -38,7 +42,8 @@ public class FireBall : Skill
                     mult_crit = 2;
                 // Application des dégâts
                 target.current_stats[(int)CastType.life] -= amount * mult_crit;
-                caster.me_body.Cast(amount * mult_crit, target.me_body, () => { caster.attacking = false; });
+                caster.me_body.Cast(amount * mult_crit, fireballPrefab, target.me_body, () => { caster.attacking = false; });
+
             }
             else
             {
