@@ -10,25 +10,26 @@ public class Maps : MonoBehaviour
     public AudioClip cancel;
     public AudioClip music;
     //public Sprite start;
-    
+
     public GameObject buttonPrefabRed; // bouton rouge indiquant un lieu a visiter
     public GameObject canvas; // this
-    
 
-    public GameObject BoxDialog,TextDialog;
 
-    public static int level = 1; // numero du level permettant de determine le nombre de points a faire apparaitre
+    public GameObject BoxDialog, TextDialog;
+
+    public static int level = 0; // numero du level permettant de determine le nombre de points a faire apparaitre
 
     public static Maps instance = null; // variable permettant de rendre la classe static
 
     bool boolean = false;
     GameObject button;
+    int scene = 0;
     //permet de rendre la classe static
 
 
     void Awake()
     {
-        
+
         /*
         //Check if there is already an instance of SoundManager
         if (instance == null)
@@ -44,10 +45,10 @@ public class Maps : MonoBehaviour
         
         buttonPrefabRed.SetActive(true);*/
         Debug.Log("Awake");
-
+        level++;
     }
 
-        
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,22 +57,22 @@ public class Maps : MonoBehaviour
         button = new GameObject();
         //SoundManager.instance.PlaySingle(music);
 
-       //GameObject lastButton =  createButton(generatePointInMaps(),""); // on creer un 1er boutton
+        //GameObject lastButton =  createButton(generatePointInMaps(),""); // on creer un 1er boutton
         for (int i = 2; i < level; i++) // pour chaque niveau on genere un boutton proche de l'ancien
         {
             //lastButton = createButton(generatePointNear(new Vector2(lastButton.transform.position.x, lastButton.transform.position.y),80), "");
         }
         BoxDialog.SetActive(false);
-        
+
         // createButtonCombat(generatePointInMaps(), "");
 
-        Debug.Log("end start maps scene ");
+        Debug.Log("end start maps scene  for level" + level);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         /*
         Debug.Log("update maps scene ");
         if (boolean== true)
@@ -82,7 +83,7 @@ public class Maps : MonoBehaviour
         Debug.Log("update end map scene ");*/
     }
 
- public void ShowDialog()
+    public void ShowDialog()
     {
         BoxDialog.SetActive(true);
     }
@@ -115,14 +116,14 @@ public class Maps : MonoBehaviour
      * @param position = position du button sur le background
      * @param text = texte du boutton 
      * */
-    private GameObject createButton(Vector2 position,string text)
+    private GameObject createButton(Vector2 position, string text)
     {
         Debug.Log("create button ");
-        button = Instantiate(buttonPrefabRed) as GameObject ;
+        button = Instantiate(buttonPrefabRed) as GameObject;
         Debug.Log("instantiate ");
         //button.transform.position = new Vector3(position.x, position.y, 0);
 
-        button.transform.SetPositionAndRotation(new Vector3(position.x, position.y, 0), new Quaternion(0,0,0,0));
+        button.transform.SetPositionAndRotation(new Vector3(position.x, position.y, 0), new Quaternion(0, 0, 0, 0));
         Debug.Log("position maps scene ");
         button.transform.SetParent(canvas.transform);//Setting button parent
         Debug.Log("canvas set parent ");
@@ -161,35 +162,62 @@ public class Maps : MonoBehaviour
         return position;
 
     }*/
-    /**
-     * permet de generer un position proche d'une position donnée
-     * *//*
-    private Vector2 generatePointNear(Vector2 pts,float distanceMax)
-    {
-        Vector2 position;
+       /**
+        * permet de generer un position proche d'une position donnée
+        * *//*
+       private Vector2 generatePointNear(Vector2 pts,float distanceMax)
+       {
+           Vector2 position;
 
-        do
-        {
-            position = pts + Random.insideUnitCircle * distanceMax;
-            Debug.Log(" position x : "+position.x+" position y "+position.y);
+           do
+           {
+               position = pts + Random.insideUnitCircle * distanceMax;
+               Debug.Log(" position x : "+position.x+" position y "+position.y);
 
-        } while (!canvas.GetComponent<PolygonCollider2D>().OverlapPoint(position));
+           } while (!canvas.GetComponent<PolygonCollider2D>().OverlapPoint(position));
 
-        Debug.Log(" ------ FIN ------ position x : " + position.x + " position y " + position.y);
-        return position;
-    }*/
-
-
-   
+           Debug.Log(" ------ FIN ------ position x : " + position.x + " position y " + position.y);
+           return position;
+       }*/
 
 
-    void generateCombatScene()
+
+
+
+   public void generateCombatScene()
     {
         // algorithme aleratoire qui definit la scene
         SoundManager.instance.RandomizeSfx(confirm);
 
         BoxDialog.SetActive(true);
         TextDialog.transform.GetComponent<Text>().text = "Vous vous reveillé avec un mal de crâne ....";//Changing text
+        scene = 1;
+        Debug.Log(" -- scene de Combat crée --");
+
+    }
+
+    public void generateEventScene()
+    {
+        // algorithme aleratoire qui definit la scene
+        SoundManager.instance.RandomizeSfx(confirm);
+        scene = 2;
+        BoxDialog.SetActive(true);
+        string text = "";
+        switch (Random.Range(0, 2))
+        {
+            case 0:
+                text = "C'est calme, trop calme.....";
+                break;
+            case 1:
+                text = "Vous entendez quelqu'un approcher";
+                break;
+            case 2:
+                text = "il y a quelque chose sur la route";
+                break;
+
+        }
+
+        TextDialog.transform.GetComponent<Text>().text = text;//Changing text
 
         Debug.Log(" -- scene de Combat crée --");
 
@@ -200,10 +228,23 @@ public class Maps : MonoBehaviour
 
         SoundManager.instance.RandomizeSfx(confirm);
         BoxDialog.SetActive(false);
+        BoxDialog.SetActive(false);
         //canvas.SetActive(false);
         buttonPrefabRed.SetActive(false);
-        SceneManager.LoadScene("Event");
 
+        switch (scene)
+        {
+            case 1:
+                SceneManager.LoadScene("Combat");
+                break;
+            case 2:
+                SceneManager.LoadScene("Event");
+                break;
+
+            default:
+                Debug.Log(" -- ERROR selection scene  --");
+                break;
+        }
     }
 
 
