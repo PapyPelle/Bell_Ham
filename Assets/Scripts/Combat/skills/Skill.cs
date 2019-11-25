@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // La classe générique pour les compétences
-public class Skill // : MonoBehaviour
+public class Skill : MonoBehaviour
 {
     public enum CastType : int { life, energy, mana };
 

@@ -31,7 +31,7 @@ public class PoisonMist : Skill
                 caster.attacking = true;
                 caster.current_stats[cast_type] -= cost;
                 target.AddStatus(new Poison(amount, target));
-                caster.me_body.Cast(0, target.me_body, () => { caster.attacking = false; });
+                caster.me_body.Cast(0, null, target.me_body, () => { caster.attacking = false; });
             }
             else
             {
