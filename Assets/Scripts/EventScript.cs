@@ -13,6 +13,7 @@ public class EventScript : MonoBehaviour
 
     public GameObject canvas; // this*/
     public GameObject BoxDialog,TextDialog;
+    public GameObject Trading;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,8 @@ public class EventScript : MonoBehaviour
 
         }
         TextDialog.transform.GetComponent<Text>().text = text;//Changing text
+        Trading.SetActive(false);
+        BoxDialog.SetActive(true);
     }
 
     // Update is called once per frame
@@ -47,7 +50,7 @@ public class EventScript : MonoBehaviour
     {
         SoundManager.instance.RandomizeSfx(confirm);
         BoxDialog.SetActive(false);
-
+        Trading.SetActive(true);
     }
     public void btnNo()
     {

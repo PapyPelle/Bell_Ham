@@ -191,7 +191,8 @@ public class Maps : MonoBehaviour
     {
 
         SoundManager.instance.RandomizeSfx(confirm);
-       SceneManager.LoadScene("Event");
+        canvas.SetActive(false);
+        SceneManager.LoadScene("Event");
 
     }
 
