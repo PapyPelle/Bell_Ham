@@ -18,12 +18,10 @@ public class BookPopup : MonoBehaviour
 	public GameObject c3 = null;
 	public GameObject c4 = null;
 
-	public GameObject a1 = null;
-	public GameObject a2 = null;
-	public GameObject a3 = null;
-	public GameObject a4 = null;
-	public GameObject a5 = null;
-	public GameObject a6 = null;
+	public GameObject c1t = null;
+	public GameObject c2t = null;
+	public GameObject c3t = null;
+	public GameObject c4t = null;
 
 	public int comp1 = 0;
 	public int comp2 = 0;
@@ -31,6 +29,7 @@ public class BookPopup : MonoBehaviour
 	public int comp4 = 0;
 
 	Image img;
+	Text txt;
 
 	public AudioClip click;
 
@@ -110,6 +109,20 @@ public class BookPopup : MonoBehaviour
 		}
     }
 
-
+    public void SetCapacity2(GameObject go) {
+			if (num_capacity==1) {
+				txt = c1t.GetComponent<Text>();
+			}
+			if (num_capacity==2) {
+				txt = c2t.GetComponent<Text>();
+			}
+			if (num_capacity==3) {
+				txt = c3t.GetComponent<Text>();
+			}
+			if (num_capacity==4) {
+				txt = c4t.GetComponent<Text>();
+			}
+			txt.text = go.GetComponent<Text>().text;
+    }
 
 }
