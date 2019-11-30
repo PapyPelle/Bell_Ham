@@ -2450,7 +2450,7 @@ GameObject:
   - component: {fileID: 351796774}
   - component: {fileID: 351796779}
   m_Layer: 5
-  m_Name: InventoryPlayer
+  m_Name: InventoryPlayer(Achat)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3055,6 +3055,10 @@ MonoBehaviour:
   emptyInventoryCase: {fileID: 21300000, guid: a30750f59d7643748b8ce9d0f6b138d0, type: 3}
   emptyExchangeCase: {fileID: 21300000, guid: 7dd9b54c4c658a24a87348fdd85626dc, type: 3}
   Or: {fileID: 21300000, guid: 131310820a577c249b0acc4c6f6b28a5, type: 3}
+  Attaque_basique: {fileID: 21300000, guid: fe0ff5cd0f333b647bfcf66ad708096d, type: 3}
+  Boule_de_feu: {fileID: 21300000, guid: 2de28850d7126aa44ad366dc6b1fb698, type: 3}
+  Flaque_de_poison: {fileID: 21300000, guid: f44ab27b438591e4591fb96481f6e972, type: 3}
+  Premier_soin: {fileID: 21300000, guid: a821ca2d4f54ef645b2a2318409e46cf, type: 3}
   Listsprites:
   - {fileID: 21300000, guid: 5612659a2233f4e40822e9f3bbcb6613, type: 3}
   - {fileID: 21300000, guid: 32bb7ec491e6a9042a1d59de3fe13dd9, type: 3}
@@ -3063,14 +3067,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 29f1539f16b3eec4590bf2b750bfb4e1, type: 3}
   ListVentes:
   - {fileID: 1532323781}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 933912739}
+  - {fileID: 1150296044}
+  - {fileID: 343361156}
+  - {fileID: 399028361}
   ListAchat:
   - {fileID: 432537668}
   - {fileID: 884407082}
+  - {fileID: 836227255}
   - {fileID: 1243589870}
+  - {fileID: 978869211}
   confirm: {fileID: 8300000, guid: 311ed1f1bf2aa1847b8f10462f75982f, type: 3}
   cancel: {fileID: 8300000, guid: 7e58c1718e011c847949792efd486a17, type: 3}
   aLaCaisse: {fileID: 8300000, guid: 2332cef8c71bcbd49a5c5b1815705ad3, type: 3}
@@ -3184,7 +3190,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 432537667}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3210,19 +3216,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: d2c6967620b27634884cd0ac957da71b, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
+    m_LineSpacing: 2
+  m_Text: '?'
 --- !u!222 &413185664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3391,8 +3397,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 413185662}
   - {fileID: 1382967072}
+  - {fileID: 413185662}
   m_Father: {fileID: 351796773}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9809,7 +9815,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 432537667}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

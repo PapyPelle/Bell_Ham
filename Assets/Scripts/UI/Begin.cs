@@ -60,6 +60,8 @@ public class Begin : MonoBehaviour
             PlayerPrefs.SetInt("ENERGIE", 100+(int.Parse(AGI.GetComponent<UnityEngine.UI.Text>().text)*3));
             PlayerPrefs.SetInt("MANA", 100+(int.Parse(MEM.GetComponent<UnityEngine.UI.Text>().text)*3));
 
+            PlayerPrefs.SetInt("GOLD", 10);
+
             PlayerPrefs.Save();
 
             SceneManager.LoadScene("Map");
