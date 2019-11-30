@@ -7079,7 +7079,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Attaque basique\r\n"
+  m_Text: "Attaque basique\r"
 --- !u!222 &929292277
 CanvasRenderer:
   m_ObjectHideFlags: 0
