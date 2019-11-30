@@ -42,10 +42,15 @@ public class CombatManager : MonoBehaviour
         SortFighters();
         // On instantie le corps anime
         fighter_list[0].me_body = SpawnCharacter(true, 0);
+        fighter_list[0].gameObject.transform.position = fighter_list[0].me_body.gameObject.transform.position;
+        fighter_list[0].my_number = 0;
         for (int i=1; i < fighter_list.Length; i++)
         {
             fighter_list[i].me_body = SpawnCharacter(false, i);
+            fighter_list[i].gameObject.transform.position = fighter_list[i].me_body.gameObject.transform.position;
+            fighter_list[i].my_number = i;
         }
+
         // Lance le combat
         fighter_list[0].me_body.ShowSelectionCircle();
         fighter_list[0].StartTurn();

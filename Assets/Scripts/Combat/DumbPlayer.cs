@@ -12,22 +12,22 @@ public class DumbPlayer : Character
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("Me player cast spell SLAM");
-            list_of_skills[0].Activate(this, GetTarget());
+            list_of_skills[0].Activate(this, combat.fighter_list[target]);
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
             Debug.Log("Me player cast spell FIREBALL");
-            list_of_skills[1].Activate(this, GetTarget());
+            list_of_skills[1].Activate(this, combat.fighter_list[target]);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Me player cast spell POISONMIST");
-            list_of_skills[2].Activate(this, GetTarget());
+            list_of_skills[2].Activate(this, combat.fighter_list[target]);
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Me player cast spell HEAL");
-            list_of_skills[3].Activate(this, this);
+            list_of_skills[3].Activate(this, combat.fighter_list[target]);
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
@@ -47,13 +47,4 @@ public class DumbPlayer : Character
         list_of_skills[3] = new Heal();
     }
 
-    private Character GetTarget()
-    {
-        int i = 1;
-        while (i < combat.fighter_list.Length && combat.fighter_list[i].is_alive == false)
-            i++;
-        if (i >= combat.fighter_list.Length)
-            return null;
-        return combat.fighter_list[i];
-    }
 }
