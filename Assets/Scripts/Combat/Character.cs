@@ -19,6 +19,8 @@ public abstract class Character : MonoBehaviour
     // Savoir si l'on peut agir
     public bool my_turn = false;
     public bool attacking = false;
+    public int target = 0;
+    public int my_number;
 
     // Combat en cours
     public CombatManager combat;
@@ -128,6 +130,12 @@ public abstract class Character : MonoBehaviour
     public void RemoveStatus(Status s)
     {
         status.Remove(s);
+    }
+
+    private void OnMouseDown()
+    {
+        combat.PlayerCharacter().target = my_number;
+        // activate blue circle
     }
 
 }
