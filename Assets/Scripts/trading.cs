@@ -147,12 +147,12 @@ public class trading : MonoBehaviour
         {
 
             int i = 0;
-            while (!ListAchat[i].transform.GetChild(1).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+            while (!ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
             {
                 i++;
                 Debug.Log("i = " + i);
             }
-            ListAchat[i].transform.GetChild(1).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
+            ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
 
             // flush exchange
             achat.GetComponent<Image>().sprite = emptyInventoryCase;
