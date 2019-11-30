@@ -27,10 +27,12 @@ public class trading : MonoBehaviour
     {
         for(int i =0; i< 3;i++)
         {
-            ListVentes[i].GetComponent<Image>().sprite = Listsprites[Random.Range(0, Listsprites.Length)];
+            //ListVentes[i].GetComponent<Image>().sprite = Listsprites[Random.Range(0, Listsprites.Length)];
+           ListVentes[i].transform.GetChild(1).GetComponent<Image>().sprite = Listsprites[Random.Range(0, Listsprites.Length)];
+           
         }
 
-        ListAchat[0].GetComponent<Image>().sprite = Or;
+        ListAchat[0].transform.GetChild(1).GetComponent<Image>().sprite = Or;
     }
 
     // Update is called once per frame
@@ -44,21 +46,21 @@ public class trading : MonoBehaviour
     {
         if (achat.GetComponent<Image>().sprite.Equals(emptyExchangeCase))
         {
-            Debug.Log("first Object");
+            Debug.Log("first Object Achat");
         }
         else
         {
             int i = 0;
-            while (!ListVentes[i].GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+            while (!ListVentes[i].transform.GetChild(1).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
             {
                 i++;
                 Debug.Log("i = "+i);
             }
-            ListVentes[i].GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
+            ListVentes[i].transform.GetChild(1).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
 
         }
-        achat.GetComponent<Image>().sprite = btn.GetComponent<Image>().sprite;
-        btn.GetComponent<Image>().sprite = emptyInventoryCase;
+        achat.GetComponent<Image>().sprite = btn.transform.GetChild(1).GetComponent<Image>().sprite;
+        btn.transform.GetChild(1).GetComponent<Image>().sprite = emptyInventoryCase;
         
       
         
@@ -68,21 +70,21 @@ public class trading : MonoBehaviour
     {
         if (vente.GetComponent<Image>().sprite.Equals(emptyExchangeCase))
         {
-            Debug.Log("first Object");
+            Debug.Log("first Object Vente");
         }
         else
         {
             int i = 0;
-            while (!ListAchat[i].GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+            while (!ListAchat[i].transform.GetChild(1).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
             {
                 i++;
                 Debug.Log("i = " + i);
             }
-            ListAchat[i].GetComponent<Image>().sprite = vente.GetComponent<Image>().sprite;
+            ListAchat[i].transform.GetChild(1).GetComponent<Image>().sprite = vente.GetComponent<Image>().sprite;
 
         }
-        vente.GetComponent<Image>().sprite = btn.GetComponent<Image>().sprite;
-        btn.GetComponent<Image>().sprite = emptyInventoryCase;
+        vente.GetComponent<Image>().sprite = btn.transform.GetChild(1).GetComponent<Image>().sprite;
+        btn.transform.GetChild(1).GetComponent<Image>().sprite = emptyInventoryCase;
 
     }
     public void clickQuit(GameObject canvas)
@@ -103,12 +105,12 @@ public class trading : MonoBehaviour
         {
 
             int i = 0;
-            while (!ListAchat[i].GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+            while (!ListAchat[i].transform.GetChild(1).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
             {
                 i++;
                 Debug.Log("i = " + i);
             }
-            ListAchat[i].GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
+            ListAchat[i].transform.GetChild(1).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
 
             // flush exchange
             achat.GetComponent<Image>().sprite = emptyInventoryCase;
