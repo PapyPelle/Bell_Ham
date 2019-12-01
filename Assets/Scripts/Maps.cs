@@ -17,7 +17,7 @@ public class Maps : MonoBehaviour
 
     public GameObject BoxDialog, TextDialog;
 
-    public static int level = 0; // numero du level permettant de determine le nombre de points a faire apparaitre
+    public static int level = 1; // numero du level permettant de determine le nombre de points a faire apparaitre
 
     public static Maps instance = null; // variable permettant de rendre la classe static
 
