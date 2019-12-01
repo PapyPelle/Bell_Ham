@@ -1233,6 +1233,7 @@ MonoBehaviour:
   music: {fileID: 8300000, guid: 36e4bec92cda67b4495772670160405c, type: 3}
   buttonPrefabRed: {fileID: 385589620}
   canvas: {fileID: 1649717146}
+  buttonGreen: {fileID: 1907479529}
   BoxDialog: {fileID: 1826871285}
   TextDialog: {fileID: 1314099941}
 --- !u!114 &1649717148
