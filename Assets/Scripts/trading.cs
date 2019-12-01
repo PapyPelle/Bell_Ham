@@ -91,37 +91,71 @@ public class trading : MonoBehaviour
 
     public void clickAchat(Button btn)
     {
-        if (!achat.GetComponent<Image>().sprite.Equals(btn.transform.GetChild(0).GetComponent<Image>().sprite))
+        int i = 0;
+        if (btn.transform.GetChild(0).GetComponent<Image>().sprite.Equals(Or))
         {
-            if (achat.GetComponent<Image>().sprite.Equals(emptyExchangeCase) || achat.GetComponent<Image>().sprite.Equals(Or))
+            if ( (System.Int32.Parse(btn.transform.GetChild(1).GetComponent<Text>().text) >= 5))
             {
-                Debug.Log("first Object Achat");
-            }
-            else
-            {
-                int i = 0;
-                while (!ListVentes[i].transform.transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
-                {
-                    i++;
-                    Debug.Log("i = " + i);
-                }
-                ListVentes[i].transform.GetChild(0).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
-
-            }
-            achat.GetComponent<Image>().sprite = btn.transform.GetChild(0).GetComponent<Image>().sprite;
-
             if (achat.GetComponent<Image>().sprite.Equals(Or))
             {
-                achat.transform.GetChild(1).GetComponent<Text>().text = btn.transform.transform.GetChild(1).GetComponent<Text>().text;
-                btn.transform.transform.GetChild(1).GetComponent<Text>().text = "0";
+                achat.transform.transform.GetChild(1).GetComponent<Text>().text = (System.Int32.Parse(achat.transform.transform.GetChild(1).GetComponent<Text>().text) + 5).ToString();
             }
             else
             {
-                btn.transform.GetChild(0).GetComponent<Image>().sprite = emptyInventoryCase;
-                achat.transform.transform.GetChild(1).GetComponent<Text>().text = "";
-                ListVentes[0].transform.transform.GetChild(1).GetComponent<Text>().text = "10";
+                if (achat.GetComponent<Image>().sprite.Equals(emptyExchangeCase))
+                {
+                   
+                }
+                else
+                {
+                    i = 0;
+                    while (!ListVentes[i].transform.transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+                    {
+                        i++;
+             
+                    }
+                    ListVentes[i].transform.GetChild(0).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
+
+                }
+                achat.transform.transform.GetChild(1).GetComponent<Text>().text = "5";
+                achat.GetComponent<Image>().sprite = Or;
+            }
+            btn.transform.GetChild(1).GetComponent<Text>().text = (System.Int32.Parse(btn.transform.GetChild(1).GetComponent<Text>().text) - 5).ToString();
             }
 
+        }
+        else
+        {
+            if (achat.GetComponent<Image>().sprite.Equals(Or)&& !btn.transform.GetChild(0).GetComponent<Image>().sprite.Equals(Or))
+            {
+                ListVentes[0].transform.GetChild(1).GetComponent<Text>().text = (System.Int32.Parse(ListVentes[0].transform.GetChild(1).GetComponent<Text>().text) + System.Int32.Parse(achat.transform.transform.GetChild(1).GetComponent<Text>().text)).ToString();
+            }
+                if (!achat.GetComponent<Image>().sprite.Equals(btn.transform.GetChild(0).GetComponent<Image>().sprite))
+            {
+                if (achat.GetComponent<Image>().sprite.Equals(emptyExchangeCase) || achat.GetComponent<Image>().sprite.Equals(Or))
+                {
+                    Debug.Log("first Object Achat");
+                }
+                else
+                {
+                    i = 0;
+                    while (!ListVentes[i].transform.transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+                    {
+                        i++;
+                        Debug.Log("i = " + i);
+                    }
+                    ListVentes[i].transform.GetChild(0).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
+
+                }
+                achat.GetComponent<Image>().sprite = btn.transform.GetChild(0).GetComponent<Image>().sprite;
+
+
+                btn.transform.GetChild(0).GetComponent<Image>().sprite = emptyInventoryCase;
+                achat.transform.transform.GetChild(1).GetComponent<Text>().text = "";
+                //ListVentes[0].transform.transform.GetChild(1).GetComponent<Text>().text = "10";
+
+
+            }
         }
     }
 
@@ -129,39 +163,75 @@ public class trading : MonoBehaviour
 
     public void clickVente(Button btn)
     {
-        if (!vente.GetComponent<Image>().sprite.Equals(btn.transform.GetChild(0).GetComponent<Image>().sprite))
+        int i = 0;
+
+        if (btn.transform.GetChild(0).GetComponent<Image>().sprite.Equals(Or))
         {
-            if (vente.GetComponent<Image>().sprite.Equals(emptyExchangeCase) || vente.GetComponent<Image>().sprite.Equals(Or))
+            if ((System.Int32.Parse(btn.transform.GetChild(1).GetComponent<Text>().text) >= 5))
             {
-                Debug.Log("first Object Vente");
-            }
-            else
-            {
-                int i = 0;
-                while (!ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+                if (vente.GetComponent<Image>().sprite.Equals(Or))
                 {
-                    i++;
-                    Debug.Log("i = " + i);
+                    vente.transform.transform.GetChild(1).GetComponent<Text>().text = (System.Int32.Parse(vente.transform.transform.GetChild(1).GetComponent<Text>().text) + 5).ToString();
                 }
-                ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite = vente.GetComponent<Image>().sprite;
+                else
+                {
+                    if (vente.GetComponent<Image>().sprite.Equals(emptyExchangeCase))
+                    {
 
+                    }
+                    else
+                    {
+                        i = 0;
+                        while (!ListAchat[i].transform.transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+                        {
+                            i++;
+
+                        }
+                        ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite = vente.GetComponent<Image>().sprite;
+
+                    }
+                    vente.transform.transform.GetChild(1).GetComponent<Text>().text = "5";
+                    vente.GetComponent<Image>().sprite = Or;
+                }
+                btn.transform.GetChild(1).GetComponent<Text>().text = (System.Int32.Parse(btn.transform.GetChild(1).GetComponent<Text>().text) - 5).ToString();
             }
-            vente.GetComponent<Image>().sprite = btn.transform.GetChild(0).GetComponent<Image>().sprite;
 
-            if (vente.GetComponent<Image>().sprite.Equals(Or))
+        }
+        else
+        {
+            if (!vente.GetComponent<Image>().sprite.Equals(btn.transform.GetChild(0).GetComponent<Image>().sprite))
             {
-                vente.transform.transform.GetChild(1).GetComponent<Text>().text = btn.transform.transform.GetChild(1).GetComponent<Text>().text;
-                btn.transform.transform.GetChild(1).GetComponent<Text>().text = "0";
+                if (vente.GetComponent<Image>().sprite.Equals(emptyExchangeCase) || vente.GetComponent<Image>().sprite.Equals(Or))
+                {
+                    Debug.Log("first Object Vente");
+                }
+                else
+                {
+                     i = 0;
+                    while (!ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+                    {
+                        i++;
+                        Debug.Log("i = " + i);
+                    }
+                    ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite = vente.GetComponent<Image>().sprite;
 
-            }
-            else
-            {
-                btn.transform.GetChild(0).GetComponent<Image>().sprite = emptyInventoryCase;
-                vente.transform.transform.GetChild(1).GetComponent<Text>().text = "";
-                ListAchat[0].transform.transform.GetChild(1).GetComponent<Text>().text = "10";
+                }
+                vente.GetComponent<Image>().sprite = btn.transform.GetChild(0).GetComponent<Image>().sprite;
+
+                if (vente.GetComponent<Image>().sprite.Equals(Or))
+                {
+                    vente.transform.transform.GetChild(1).GetComponent<Text>().text = btn.transform.transform.GetChild(1).GetComponent<Text>().text;
+                    btn.transform.transform.GetChild(1).GetComponent<Text>().text = "0";
+
+                }
+                else
+                {
+                    btn.transform.GetChild(0).GetComponent<Image>().sprite = emptyInventoryCase;
+                    vente.transform.transform.GetChild(1).GetComponent<Text>().text = "";
+                    //ListAchat[0].transform.transform.GetChild(1).GetComponent<Text>().text = "10";
+                }
             }
         }
-
     }
 
 
@@ -177,49 +247,58 @@ public class trading : MonoBehaviour
 
     public void ValidAchat()
     {
-        if(vente.GetComponent<Image>().sprite.Equals(emptyExchangeCase) && achat.GetComponent<Image>().sprite.Equals(emptyExchangeCase))
-        {
-            SoundManager.instance.RandomizeSfx(cancel);  // son d'erreur
-        }
-        else // transacion autorisé
+        if (vente.GetComponent<Image>().sprite.Equals(Or) && achat.GetComponent<Image>().sprite.Equals(Or))
         {
 
-            int i = 0;
-            if (achat.GetComponent<Image>().sprite.Equals(Or)){ // si on echange de l'or
-                ListAchat[0].transform.transform.GetChild(1).GetComponent<Text>().text = ""+ (System.Int32.Parse(ListAchat[0].transform.transform.GetChild(1).GetComponent<Text>().text) + System.Int32.Parse(achat.transform.transform.GetChild(1).GetComponent<Text>().text)).ToString();
-                achat.transform.transform.GetChild(1).GetComponent<Text>().text = "";
-            }
-            else {
-                i = 0;
-                while (!ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
-                {
-                    i++;
-                    Debug.Log("i = " + i);
-                }
-                ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
-            }
-            if (vente.GetComponent<Image>().sprite.Equals(Or)){// si on echange de l'or
-                ListVentes[0].transform.transform.GetChild(1).GetComponent<Text>().text = "" + (System.Int32.Parse(ListVentes[0].transform.transform.GetChild(1).GetComponent<Text>().text) + System.Int32.Parse(vente.transform.transform.GetChild(1).GetComponent<Text>().text)).ToString();
-                vente.transform.transform.GetChild(1).GetComponent<Text>().text = "";
-            }
-            else
+        }
+        else
+        {
+            if (vente.GetComponent<Image>().sprite.Equals(emptyExchangeCase) || achat.GetComponent<Image>().sprite.Equals(emptyExchangeCase))
             {
-                i = 0;
-                while (!ListVentes[i].transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
-                {
-                    i++;
-                    Debug.Log("i = " + i);
-                }
-                ListVentes[i].transform.GetChild(0).GetComponent<Image>().sprite = vente.GetComponent<Image>().sprite;
+                SoundManager.instance.RandomizeSfx(cancel);  // son d'erreur
             }
-            // flush exchange
-            achat.GetComponent<Image>().sprite = emptyInventoryCase;
-        vente.GetComponent<Image>().sprite = emptyInventoryCase;
-            vente.transform.transform.GetChild(1).GetComponent<Text>().text = "";
-            SoundManager.instance.RandomizeSfx(aLaCaisse);
+            else // transacion autorisé
+            {
+
+                int i = 0;
+                if (achat.GetComponent<Image>().sprite.Equals(Or))
+                { // si on echange de l'or
+                    ListAchat[0].transform.transform.GetChild(1).GetComponent<Text>().text = "" + (System.Int32.Parse(ListAchat[0].transform.transform.GetChild(1).GetComponent<Text>().text) + System.Int32.Parse(achat.transform.transform.GetChild(1).GetComponent<Text>().text)).ToString();
+                    achat.transform.transform.GetChild(1).GetComponent<Text>().text = "";
+                }
+                else
+                {
+                    i = 0;
+                    while (!ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+                    {
+                        i++;
+                        Debug.Log("i = " + i);
+                    }
+                    ListAchat[i].transform.GetChild(0).GetComponent<Image>().sprite = achat.GetComponent<Image>().sprite;
+                }
+                if (vente.GetComponent<Image>().sprite.Equals(Or))
+                {// si on echange de l'or
+                    ListVentes[0].transform.transform.GetChild(1).GetComponent<Text>().text = "" + (System.Int32.Parse(ListVentes[0].transform.transform.GetChild(1).GetComponent<Text>().text) + System.Int32.Parse(vente.transform.transform.GetChild(1).GetComponent<Text>().text)).ToString();
+                    vente.transform.transform.GetChild(1).GetComponent<Text>().text = "";
+                }
+                else
+                {
+                    i = 0;
+                    while (!ListVentes[i].transform.GetChild(0).GetComponent<Image>().sprite.Equals(emptyInventoryCase))
+                    {
+                        i++;
+                        Debug.Log("i = " + i);
+                    }
+                    ListVentes[i].transform.GetChild(0).GetComponent<Image>().sprite = vente.GetComponent<Image>().sprite;
+                }
+                // flush exchange
+                achat.GetComponent<Image>().sprite = emptyExchangeCase;
+                vente.GetComponent<Image>().sprite = emptyExchangeCase;
+                vente.transform.transform.GetChild(1).GetComponent<Text>().text = "";
+                SoundManager.instance.RandomizeSfx(aLaCaisse);
+            }
+
+
         }
-
-
-       
     }
 }
