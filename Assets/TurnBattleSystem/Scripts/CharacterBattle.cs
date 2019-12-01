@@ -12,6 +12,7 @@ public class CharacterBattle : MonoBehaviour {
     private Action onSlideComplete;
     private bool isPlayerTeam;
     private GameObject selectionCircleGameObject;
+    private GameObject selectionCircleGameSpellObject;
     private HealthSystem healthSystem;
     private World_Bar healthBar;
 
@@ -26,7 +27,9 @@ public class CharacterBattle : MonoBehaviour {
     public void Setup(bool isPlayerTeam, Character fighter) {
         characterBase = GetComponent<Character_Base>();
         selectionCircleGameObject = transform.Find("SelectionCircle").gameObject;
+        selectionCircleGameSpellObject = transform.Find("SelectionCircleSpell").gameObject;
         HideSelectionCircle();
+        HideSelectionCircleSpell();
         state = State.Idle;
 
         this.isPlayerTeam = isPlayerTeam;
@@ -167,8 +170,16 @@ public class CharacterBattle : MonoBehaviour {
         selectionCircleGameObject.SetActive(false);
     }
 
-    public void ShowSelectionCircle() { 
+    public void ShowSelectionCircle() {
         selectionCircleGameObject.SetActive(true);
+    }
+
+    public void HideSelectionCircleSpell() {
+        selectionCircleGameSpellObject.SetActive(false);
+    }
+
+    public void ShowSelectionCircleSpell() {
+        selectionCircleGameSpellObject.SetActive(true);
     }
 
 }

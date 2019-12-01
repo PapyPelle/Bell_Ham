@@ -134,8 +134,9 @@ public abstract class Character : MonoBehaviour
 
     private void OnMouseDown()
     {
+        combat.fighter_list[combat.PlayerCharacter().target].me_body.HideSelectionCircleSpell();
         combat.PlayerCharacter().target = my_number;
-        // activate blue circle
+        me_body.ShowSelectionCircleSpell();
     }
 
 }
