@@ -13,7 +13,7 @@ public class PlayerCombat : Character
         max_energy = PlayerPrefs.GetInt("ENERGIE", 100);
         max_mana = PlayerPrefs.GetInt("MANA", 100);
         for (int i = 0; i < 4; i++)
-            list_of_skills[i] = SetUpSpell(PlayerPrefs.GetString("comp" + i.ToString(), ""));
+            list_of_skills[i] = SetUpSpell(PlayerPrefs.GetString("comp" + (i+1).ToString(), ""));
     }
 
     public override void TakeTurn()
@@ -31,6 +31,7 @@ public class PlayerCombat : Character
 
     private Skill SetUpSpell(string s)
     {
+        Debug.Log("setting up : " + s);
         if (string.Compare(s, "Attaque basique") == 0)
             return new Slam();
         else if (string.Compare(s, "Boule de feu") == 0)
