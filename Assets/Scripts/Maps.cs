@@ -13,7 +13,7 @@ public class Maps : MonoBehaviour
 
     public GameObject buttonPrefabRed; // bouton rouge indiquant un lieu a visiter
     public GameObject canvas; // this
-
+    public GameObject buttonGreen; // bouton vert d'event
 
     public GameObject BoxDialog, TextDialog;
 
@@ -45,7 +45,7 @@ public class Maps : MonoBehaviour
         
         buttonPrefabRed.SetActive(true);*/
         Debug.Log("Awake");
-        level++;
+        
     }
 
 
@@ -67,6 +67,11 @@ public class Maps : MonoBehaviour
         // createButtonCombat(generatePointInMaps(), "");
 
         Debug.Log("end start maps scene  for level" + level);
+        buttonGreen.SetActive(false);
+        if (level >= 1)
+        {
+            buttonGreen.SetActive(true);
+        }
     }
 
     // Update is called once per frame
