@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerCombat : Character
 {
-    int current_spell = 0;
-    int current_target = 0;
+    public int current_spell = 0;
+    public bool attack = false;
 
     protected override void GetCharacterInfo()
     {
@@ -18,7 +18,15 @@ public class PlayerCombat : Character
 
     public override void TakeTurn()
     {
-
+        if (attack)
+        {
+            if (list_of_skills[current_spell] != null)
+                list_of_skills[current_spell].Activate(this, combat.fighter_list[target]);
+            else
+                Debug.Log("The spell isn't correctly set");
+            attack = false;
+        }
+            
     }
 
     private Skill SetUpSpell(string s)
@@ -35,23 +43,15 @@ public class PlayerCombat : Character
 
     }
 
-    private int SelectSpell()
+    public void SelectSpell(int i)
     {
-        return 0;
+        current_spell = i;
     }
 
-    private int SelectTarget()
+    public void Attack()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 pos = Input.mousePosition;
-            Collider2D hitCollider = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(pos));
-            if (hitCollider != null && hitCollider.CompareTag("Player"))
-            {
-                Debug.Log("This is player");
-            }
-        }
-        return 0;
+        attack = true;
     }
+
 
 }
