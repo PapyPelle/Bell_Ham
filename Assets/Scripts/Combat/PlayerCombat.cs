@@ -7,6 +7,9 @@ public class PlayerCombat : Character
     private int current_spell = 0;
     private bool attack = false;
 
+    public BarControl energyBarControl;
+    public BarControl manaBarControl;
+
     // le son du click
     public AudioClip capacitySelectSound;
 
@@ -18,6 +21,8 @@ public class PlayerCombat : Character
         max_mana = PlayerPrefs.GetInt("MANA", 100);
         for (int i = 0; i < 4; i++)
             list_of_skills[i] = SetUpSpell(PlayerPrefs.GetString("comp" + (i+1).ToString(), ""));
+        energyBarControl.SetBar(1);
+        manaBarControl.SetBar(1);
     }
 
     public override void TakeTurn()
@@ -25,7 +30,11 @@ public class PlayerCombat : Character
         if (attack)
         {
             if (list_of_skills[current_spell] != null)
+            {
                 list_of_skills[current_spell].Activate(this, combat.fighter_list[target]);
+                energyBarControl.SetBar((float)current_stats[1] / (float)max_energy);
+                manaBarControl.SetBar((float)current_stats[2] / (float)max_mana);
+            }
             else
                 Debug.Log("The spell isn't correctly set");
             attack = false;

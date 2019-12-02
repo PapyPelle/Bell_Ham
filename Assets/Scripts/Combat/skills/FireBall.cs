@@ -9,7 +9,7 @@ public class FireBall : Skill
     public FireBall()
     {
         amount = 50;
-        cost = 100;
+        cost = 110;
         cast_type = (int)CastType.mana;
         fireballPrefab = (GameObject)Resources.Load("fireball", typeof(GameObject));
 

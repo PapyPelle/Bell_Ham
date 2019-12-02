@@ -7,7 +7,7 @@ public class Heal : Skill
     public Heal()
     {
         amount = 10;
-        cost = 20;
+        cost = 27;
         cast_type = (int)CastType.mana;
     }
 

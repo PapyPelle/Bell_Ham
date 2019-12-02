@@ -6,7 +6,7 @@ public class PoisonMist : Skill
 {
     public PoisonMist()
     {
-        amount = 6;
+        amount = 10;
         cost = 50;
         cast_type = (int)CastType.mana;
     }
