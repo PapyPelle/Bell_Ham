@@ -21,8 +21,8 @@ public class PlayerCombat : Character
         max_mana = PlayerPrefs.GetInt("MANA", 100);
         for (int i = 0; i < 4; i++)
             list_of_skills[i] = SetUpSpell(PlayerPrefs.GetString("comp" + (i+1).ToString(), ""));
-        energyBarControl.SetBar(1);
-        manaBarControl.SetBar(1);
+        // energyBarControl.SetBar(1);
+        // manaBarControl.SetBar(1);
     }
 
     public override void TakeTurn()
