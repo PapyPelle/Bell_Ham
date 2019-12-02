@@ -199,6 +199,10 @@ public class trading : MonoBehaviour
         }
         else
         {
+            if (vente.GetComponent<Image>().sprite.Equals(Or) && !btn.transform.GetChild(0).GetComponent<Image>().sprite.Equals(Or))
+            {
+                ListAchat[0].transform.GetChild(1).GetComponent<Text>().text = (System.Int32.Parse(ListAchat[0].transform.GetChild(1).GetComponent<Text>().text) + System.Int32.Parse(vente.transform.transform.GetChild(1).GetComponent<Text>().text)).ToString();
+            }
             if (!vente.GetComponent<Image>().sprite.Equals(btn.transform.GetChild(0).GetComponent<Image>().sprite))
             {
                 if (vente.GetComponent<Image>().sprite.Equals(emptyExchangeCase) || vente.GetComponent<Image>().sprite.Equals(Or))
