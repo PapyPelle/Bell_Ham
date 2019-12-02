@@ -378,8 +378,7 @@ MonoBehaviour:
   my_number: 0
   combat: {fileID: 0}
   me_body: {fileID: 0}
-  current_spell: 0
-  attack: 0
+  capacitySelectSound: {fileID: 8300000, guid: 5c348cc52489aca4da509750d5f15ed5, type: 3}
 --- !u!4 &80772218
 Transform:
   m_ObjectHideFlags: 0
@@ -759,6 +758,7 @@ MonoBehaviour:
   soundDeath: {fileID: 8300000, guid: 13d3f1c072e36fb4cbfcbed9cfe07750, type: 3}
   soundDash: {fileID: 8300000, guid: 47d0e6cbc012f374e943cc1f0af60b04, type: 3}
   soundAttack: {fileID: 8300000, guid: b1a8aa9aa30a5c9489254cbc8b2af365, type: 3}
+  characterSelectSound: {fileID: 0}
   pfCharacterBattle: {fileID: 7721603974982762705, guid: f1f57204e3c9d3b4d8de220bf844658e,
     type: 3}
   playerSpritesheet: {fileID: 2800000, guid: 99b898971bb2a6d418d5e738489c3fbe, type: 3}

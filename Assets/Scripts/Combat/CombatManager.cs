@@ -38,6 +38,7 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.instance.PauseSingle();
         foreach (Character c in fighter_list)
             c.combat = this;
         // Au début du combat, on décide de l'ordre d'action

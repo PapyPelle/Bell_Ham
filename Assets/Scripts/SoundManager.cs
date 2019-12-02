@@ -182,7 +182,23 @@ public class SoundManager : MonoBehaviour
         musicSource.Play();
     }
 
+    /**
+    *permet de jouer mettre en pause la musique principale
+    **/
+    //Used to play single sound clips.
+    public void PauseSingle()
+    {
+       
+        //Play the clip.
+        musicSource.Pause();
+    }
 
+    public void ReStartSingle()
+    {
+
+        //Play the clip.
+        musicSource.Play();
+    }
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
     public void RandomizeSfx(AudioClip clip)
     {
