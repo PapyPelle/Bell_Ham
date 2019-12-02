@@ -140,7 +140,7 @@ public abstract class Character : MonoBehaviour
             combat.fighter_list[combat.PlayerCharacter().target].me_body.HideSelectionCircleSpell();
             combat.PlayerCharacter().target = my_number;
             me_body.ShowSelectionCircleSpell();
-            combat.soundManager.RandomizeSfx(combat.characterSelectSound);
+            SoundManager.instance.RandomizeSfx(combat.characterSelectSound);
         }
     }
 

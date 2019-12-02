@@ -9,7 +9,6 @@ public class CombatManager : MonoBehaviour
     public AudioClip soundDash;
     public AudioClip soundAttack;
     private static CombatManager instance;
-    public SoundManager soundManager;
     public AudioClip characterSelectSound;
 
 
