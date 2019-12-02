@@ -30,6 +30,7 @@ public abstract class Character : MonoBehaviour
 
     // Les status affectant le joueur
     public List<Status> status = new List<Status>();
+    
 
     // truc pas propre pour accèder au corps anime
     public CharacterBattle me_body;
@@ -134,9 +135,13 @@ public abstract class Character : MonoBehaviour
 
     private void OnMouseDown()
     {
-        combat.fighter_list[combat.PlayerCharacter().target].me_body.HideSelectionCircleSpell();
-        combat.PlayerCharacter().target = my_number;
-        me_body.ShowSelectionCircleSpell();
+        if (is_alive)
+        {
+            combat.fighter_list[combat.PlayerCharacter().target].me_body.HideSelectionCircleSpell();
+            combat.PlayerCharacter().target = my_number;
+            me_body.ShowSelectionCircleSpell();
+            combat.soundManager.RandomizeSfx(combat.characterSelectSound);
+        }
     }
 
 }

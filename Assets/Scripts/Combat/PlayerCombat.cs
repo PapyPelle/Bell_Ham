@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PlayerCombat : Character
 {
-    public int current_spell = 0;
-    public bool attack = false;
+    private int current_spell = 0;
+    private bool attack = false;
+
+    // le son du click
+    public AudioClip capacitySelectSound;
+
 
     protected override void GetCharacterInfo()
     {
@@ -47,6 +51,7 @@ public class PlayerCombat : Character
     public void SelectSpell(int i)
     {
         current_spell = i;
+        combat.soundManager.RandomizeSfx(capacitySelectSound);
     }
 
     public void Attack()
