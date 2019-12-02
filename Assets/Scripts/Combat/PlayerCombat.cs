@@ -51,7 +51,7 @@ public class PlayerCombat : Character
     public void SelectSpell(int i)
     {
         current_spell = i;
-        combat.soundManager.RandomizeSfx(capacitySelectSound);
+        //combat.soundManager.RandomizeSfx(capacitySelectSound);
     }
 
     public void Attack()

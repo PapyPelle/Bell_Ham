@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class CombatManager : MonoBehaviour
     public AudioClip soundDash;
     public AudioClip soundAttack;
     private static CombatManager instance;
-    public SoundManager soundManager;
     public AudioClip characterSelectSound;
+    public int goldIfVictory;
 
 
     public static CombatManager GetInstance()
@@ -141,11 +142,12 @@ public class CombatManager : MonoBehaviour
     {
         if (playerAlive)
         {
-            Debug.Log(" === PLAYER WINS === ");
+            PlayerPrefs.SetInt("GOLD", goldIfVictory + PlayerPrefs.GetInt("GOLD", 0));
+            SceneManager.LoadScene("Map");
         }
         else
         {
-            Debug.Log(" === PLAYER LOSE === ");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -163,11 +165,11 @@ public class CombatManager : MonoBehaviour
         Vector3 position;
         if (isPlayerTeam)
         {
-            position = new Vector3(-50, 0);
+            position = new Vector3(-50, -20);
         }
         else
         {
-            position = new Vector3(+50, -60 + i * 25);
+            position = new Vector3(50, -60 + i * 25);
         }
         Transform characterTransform = Instantiate(pfCharacterBattle, position, Quaternion.identity);
         CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
