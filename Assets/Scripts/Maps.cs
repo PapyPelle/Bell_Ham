@@ -261,9 +261,15 @@ public class Maps : MonoBehaviour
     }
 
 
+    public void returnMenu()
+    {
 
-
-    /*
+        SceneManager.LoadScene("MainMenu");
+    }
+        
+        
+        
+        /*
      * //  Globals which should be set before calling this function:
 //
 //  int    polyCorners  =  how many corners the polygon has
