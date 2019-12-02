@@ -57,7 +57,7 @@ public class Stun : Status
         {
             // Attention ! skip les autres effets au start !!! Pas bon
             turn_remaining -= 1;
-            owner.EndTurn();
+            // owner.EndTurn();
         }
         else
         {

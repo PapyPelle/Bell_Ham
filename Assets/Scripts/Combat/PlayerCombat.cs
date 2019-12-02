@@ -27,13 +27,13 @@ public class PlayerCombat : Character
 
     public override void TakeTurn()
     {
+        energyBarControl.SetBar((float)current_stats[1] / (float)max_energy);
+        manaBarControl.SetBar((float)current_stats[2] / (float)max_mana);
         if (attack)
         {
             if (list_of_skills[current_spell] != null)
             {
                 list_of_skills[current_spell].Activate(this, combat.fighter_list[target]);
-                energyBarControl.SetBar((float)current_stats[1] / (float)max_energy);
-                manaBarControl.SetBar((float)current_stats[2] / (float)max_mana);
             }
             else
                 Debug.Log("The spell isn't correctly set");
