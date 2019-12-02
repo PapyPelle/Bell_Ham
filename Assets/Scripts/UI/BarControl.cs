@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class BarControl : MonoBehaviour
 {
+    private Transform child;
+
+    void Start()
+    {
+        child = transform.Find("fg");
+    }
+
+
     public void SetBar(float amount) // amount := current / max value
     {
-        Debug.Log("VALEUR BAR : " + amount);
-        transform.GetChild(1).transform.localScale = new Vector3(amount, 1, 1);
+        // Debug.Log("VALEUR BAR : " + amount);
+        child.localScale = new Vector3(amount, 1, 1);
     }
 }
